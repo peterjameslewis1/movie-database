@@ -47,13 +47,13 @@ const Header = props => {
 
     return (
         <div className="header">
-            <div className={window.location.pathname !== '/' ? 'show' : 'hide'}
+            <div className={window.location.pathname !== '/react-movie-database' ? 'show' : 'hide'}
                 onClick={(e) => goBack()}>
                 <i className="fas fa-arrow-left"></i>
             </div>
             <div className="logo">
                 <span></span>
-                <a href="/">ProShowz</a>
+                <a href="/react-movie-database">ProShowz</a>
             </div>
 
             <nav className="nav">
