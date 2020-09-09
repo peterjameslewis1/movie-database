@@ -1,0 +1,105 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  /* NEWSLETTER LESS */
+  /* NEWSLETTER LESS END */
+  /* LEGAL */
+  /* LEGAL END */
+}
+.footer h2 {
+  padding: 0 15px;
+}
+.footer ul {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 0 15px;
+}
+.footer ul li {
+  list-style: none;
+  margin: 10px 0;
+  cursor: pointer;
+  display: inline-block;
+}
+.footer ul li a {
+  text-decoration: none;
+  color: darkgrey;
+  display: inline;
+  position: relative;
+}
+.footer ul li a::before {
+  content: '';
+  width: 0%;
+  height: 1px;
+  background: white;
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  transition: all 0.5s;
+}
+.footer ul li a:hover::before {
+  width: 100%;
+}
+.footer-newsletter {
+  margin: 40px 0;
+  padding: 0 15px;
+}
+.footer-newsletter form {
+  border: 1px solid #2d2e2f;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-newsletter form input {
+  background: transparent;
+  width: 100%;
+  flex: 1 1 80%;
+  border: none;
+  font-size: 18px;
+  padding: 15px;
+  border: 1px solid #2d2e2f;
+  border-radius: 5px;
+}
+.footer-newsletter form input:focus {
+  background: white;
+  outline: none;
+}
+.footer-newsletter form::after {
+  content: '\f0e0';
+  font-family: "Font Awesome 5 Free";
+  display: inline-block;
+  font-style: normal;
+  position: absolute;
+  right: 30px;
+}
+.footer-newsletter p {
+  color: darkgrey;
+}
+.footer-legal {
+  background: #222;
+}
+.footer-legal_social ul {
+  margin: 5px 0 0 0;
+  padding: 15px 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.footer-legal_social ul li {
+  margin: 0;
+  transition: color 0.2s;
+}
+.footer-legal_social ul li:hover {
+  color: #df0f62;
+}
+.footer-legal_text {
+  text-align: center;
+  padding: 15px 0;
+}
+.footer-legal_text p {
+  margin: 0;
+  font-size: 15px;
+}

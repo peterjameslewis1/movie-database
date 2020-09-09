@@ -1,0 +1,165 @@
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0px;
+  display: flex;
+  left: 0;
+  z-index: 999999;
+  background: #131212;
+  height: 80px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+  text-align: left;
+  box-sizing: border-box;
+  box-shadow: 0px 1px 12px 4px #0e0d0d;
+}
+.header .show-search {
+  position: absolute;
+  width: 100%;
+  top: 80px;
+  left: 0;
+  height: 0;
+  transition: 0.5s all;
+  overflow: scroll;
+}
+.header .show-search input {
+  padding: 0;
+  border: 0;
+  width: 100%;
+  background: #222222;
+  transition: 0.5s all;
+  color: white;
+}
+.header .show-search input::placeholder {
+  color: white;
+}
+.header .show-search i {
+  position: absolute;
+  right: 20px;
+  top: 0;
+  transition: 0.5s all;
+}
+.header .search {
+  height: 50vh !important;
+}
+.header .search input {
+  padding: 20px;
+}
+.header .search input:focus {
+  color: white;
+  outline-style: none;
+}
+.header .search input:focus::placeholder {
+  color: transparent;
+}
+.header .search i {
+  top: 20px;
+}
+.header .logo {
+  flex: 80%;
+}
+.header .logo a {
+  text-decoration: none;
+  color: white;
+  font-size: 28px;
+  font-weight: 900;
+}
+.header .nav {
+  display: none;
+}
+.header .mobile-nav {
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  flex: 15%;
+}
+.header .mobile-nav i {
+  font-size: 18px;
+}
+.header .mobile-nav .search-icon i {
+  color: #df0f62;
+}
+.header .mobile {
+  height: 320px !important;
+  padding: 20px;
+  border: 1px grey solid;
+}
+.header .mobile-menu {
+  margin: 0;
+  top: 75px;
+  box-sizing: border-box;
+  display: unset;
+  width: 90%;
+  z-index: 99;
+  left: 5%;
+  right: 5%;
+  border-radius: 7px;
+  position: absolute;
+  background: #222222;
+  height: 0px;
+  overflow: hidden;
+  transition: all 0.5s;
+}
+.header .mobile-menu ul {
+  margin: 0;
+  padding: 0;
+}
+.header .mobile-menu ul li {
+  padding: 10px 0;
+  color: #df0f61;
+  list-style: none;
+  margin-right: 5px;
+}
+.header .mobile-menu ul li:first-child a {
+  color: #df0f61;
+}
+.header .mobile-menu ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+}
+.header .list {
+  margin: -2px 0 0 0;
+  box-sizing: border-box;
+  width: 100%;
+  z-index: 99;
+  position: absolute;
+  background: #222222;
+  transition: all 0.5s;
+  overflow: scroll;
+  color: white;
+}
+.header .list ul {
+  height: auto;
+  overflow: scroll;
+  padding: 0;
+  margin: 0;
+}
+.header .list ul .list-item {
+  display: flex;
+  border-bottom: 1px solid #df0f61;
+  padding: 10px;
+  height: 140px;
+  color: white;
+  text-decoration: none;
+}
+.header .list ul .list-item_img {
+  background-repeat: no-repeat !important;
+  background-size: contain !important;
+  flex: 0 1 30%;
+}
+.header .list ul .list-item_text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.header .list ul .list-item_text h4 {
+  margin: 0 0 20px 0;
+  font-size: 18px;
+}
+.header .list ul .list-item_text p {
+  margin: 0;
+  font-weight: 100;
+}

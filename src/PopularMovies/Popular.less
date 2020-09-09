@@ -1,0 +1,44 @@
+.popular-container {
+
+    .popular-container_movies {
+        display: flex;
+        flex-wrap: wrap;
+
+        &-item {
+
+            flex: 1 1 45%;
+            margin: 10px;
+            background-repeat: no-repeat !important;
+            background-size: cover !important;
+            background-position: center top !important;
+            width: 100%;
+            height: 280px;
+            border-radius: 7px;
+            position: relative;
+
+            .detail {
+                position: absolute;
+                bottom: 0;
+                color: white;
+                width: 100%;
+            }
+
+            h4,
+            p {
+                margin: 0;
+            }
+        }
+    }
+}
+
+
+
+// .popular-container_movies-item {
+//     flex: 1 1 45%;
+//     margin: 5px;
+//     background-repeat: no-repeat !important;
+//     background-size: cover !important;
+//     background-position: center top !important;
+//     width: 100%;
+//     height: 280px;
+// }

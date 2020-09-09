@@ -1,0 +1,52 @@
+.single-movie {
+  background: #0d0f0a;
+  margin-top: 80px;
+}
+.single-movie .container {
+  padding: 15px;
+}
+.single-movie h2 {
+  padding: 15px 15px 0 15px;
+  font-size: 38px;
+  text-align: left;
+  margin: 0;
+}
+.single-movie ul {
+  margin: 0;
+}
+.single-movie_info {
+  position: relative;
+  display: flex;
+}
+.single-movie_info li {
+  color: darkgray;
+  font-size: 12px;
+  margin-right: 5px;
+  list-style: none;
+  flex: auto;
+  text-align: left;
+}
+.single-movie_info .popularity i {
+  color: #df0f62;
+  margin-right: 3px;
+}
+.single-movie_img {
+  height: 50vh;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+}
+.single-movie_text {
+  text-align: left;
+  display: inline-block;
+}
+.single-movie_text h3 {
+  font-size: 24px;
+  font-weight: 200;
+  margin: 15px 0;
+  text-transform: uppercase;
+}
+.single-movie_text p {
+  font-weight: 100;
+  font-size: 16px;
+  color: darkgray;
+}

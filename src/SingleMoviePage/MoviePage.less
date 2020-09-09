@@ -1,0 +1,64 @@
+.single-movie {
+    background: #0d0f0a;
+    margin-top: 80px;
+
+    .container {
+        padding: 15px;
+    }
+
+    h2 {
+        padding: 15px 15px 0 15px;
+        font-size: 38px;
+        text-align: left;
+        margin: 0;
+    }
+
+    ul {
+        margin: 0;
+    }
+
+    &_info {
+        position: relative;
+        display: flex;
+
+        li {
+            color: darkgray;
+            font-size: 12px;
+            margin-right: 5px;
+            list-style: none;
+            flex: auto;
+            text-align: left;
+        }
+
+        .popularity {
+            i {
+                color: #df0f62;
+                margin-right: 3px;
+            }
+        }
+    }
+
+    &_img {
+        height: 50vh;
+        background-repeat: no-repeat !important;
+        background-size: cover !important;
+    }
+
+    &_text {
+        text-align: left;
+        display: inline-block;
+
+        h3 {
+            font-size: 24px;
+            font-weight: 200;
+            margin: 15px 0;
+            text-transform: uppercase;
+        }
+
+        p {
+            font-weight: 100;
+            font-size: 16px;
+            color: darkgray
+        }
+    }
+}
