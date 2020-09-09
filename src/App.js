@@ -21,7 +21,7 @@ function App() {
     <Router>
       <div className="App">
         <Switch>
-          <Route exact path="/">
+          <Route exact path="/react-movie-database">
             <Header />
             <Slide />
             <PopularMovies title="Popular Movies" />
