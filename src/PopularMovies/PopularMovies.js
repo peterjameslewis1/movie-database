@@ -30,10 +30,7 @@ const Popular = props => {
                             className="popular-container_movies-item"
                             style={{ background: `url('https://image.tmdb.org/t/p/original${item.poster_path}?api_key=8672037f7713f0f454d73f60ab645f36')` }}
                         >
-                            {/* <div className="detail">
-                                <h4>{item.title}</h4>
-                                <p>{item.vote_average}/10</p>
-                            </div> */}
+
                         </Link>
                     )
                 })}

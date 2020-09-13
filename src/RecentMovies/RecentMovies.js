@@ -38,7 +38,8 @@ const RecentMovies = props => {
         <div className="recent">
             <div className="title">
                 <h2>{props.title}</h2>
-                <span onClick={clickHandler}><i className="fas fa-caret-up"></i></span>
+                <i onClick={clickHandler}
+                    className="fas fa-caret-up"></i>
             </div>
             <div className={clicked ? 'hidden recent-container' : 'recent-container'}>
                 <div className="recent-container_items">

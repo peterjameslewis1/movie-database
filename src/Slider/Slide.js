@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import Slider from 'react-animated-slider';
-import 'react-animated-slider/build/horizontal.css';
+
+
+
 
 const Slide = (props) => {
     const key = '8672037f7713f0f454d73f60ab645f36';
     const [data, setData] = useState([])
+
+
 
     useEffect(() => {
         let mounted = true;
@@ -26,7 +30,10 @@ const Slide = (props) => {
 
 
     return (
-        <Slider autoplay={4000}>
+        <Slider autoplay={4000}
+            minSwipeOffset="15px"
+            touchDisabled="false"
+        >
             {data.map((item, index) => {
                 return (
                     <Link to={{
@@ -41,13 +48,12 @@ const Slide = (props) => {
                         <div className="center">
                             <h1>{item.title}</h1>
                             <p>{item.overview}</p>
-                            {/* <button>{item.button}</button> */}
                         </div>
-
                     </Link>
                 )
             })}
         </Slider>
+
     )
 }
 

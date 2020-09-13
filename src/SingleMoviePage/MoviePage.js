@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import MovieStats from '../MovieStats';
 import RecentMovies from '../RecentMovies/RecentMovies';
 import Header from '../Header/Header';
+import MovieRating from './MovieRating';
 
 const SingleMovie = props => {
     const key = '8672037f7713f0f454d73f60ab645f36';
@@ -10,7 +11,6 @@ const SingleMovie = props => {
     const [movie, setMovie] = useState({
         genres: []
     });
-
 
     useEffect(() => {
         let mounted = true;
@@ -28,6 +28,7 @@ const SingleMovie = props => {
             mounted = false;
         }
     }, [id]);
+
 
     // Mapping over movie genres
     const genres = (
@@ -49,13 +50,14 @@ const SingleMovie = props => {
     }
     //
 
+
     return (
         <>
             <Header />
             <div className="single-movie">
                 <h2>{movie.title}</h2>
                 <ul className="single-movie_info container">
-                    <li className="popularity"><i onClick={clickHandler} className={clicked ? 'active fas fa-star' : 'fas fa-star'}></i>{parseInt(movie.popularity)}</li>
+                    <li className="popularity"><i onClick={clickHandler} className={clicked ? 'pulse-active fas fa-star' : 'fas fa-star'}></i>{parseInt(movie.popularity)}</li>
                     <li>{genres}</li>
                     {runtime}
                     <li>{movie.release_date}</li>
@@ -69,9 +71,7 @@ const SingleMovie = props => {
                     <h3>{movie.tagline}</h3>
                     <span></span>
                     <p>{movie.overview}</p>
-                    {/* <div className="movie-details">
-
-                </div> */}
+                    <MovieRating id={id} totalStars={10} />
                     <RecentMovies title="Similar" id={id} />
                 </div>
             </div >

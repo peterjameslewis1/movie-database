@@ -17,11 +17,11 @@ const Stats = (props) => {
     return (
         <div className="stats">
             <div className="rating">
-                <i onClick={thumbClickHandler} className={thumbClicked ? 'active fas fa-thumbs-up' : 'fas fa-thumbs-up'}></i>
+                <i onClick={thumbClickHandler} className={thumbClicked ? 'pulse-active fas fa-thumbs-up' : 'fas fa-thumbs-up'}></i>
                 <p>{rating}/10</p>
             </div>
             <div className="favorite">
-                <i onClick={heartClickHandler} className={heartClicked ? 'active fas fa-heart' : 'fas fa-heart'}></i>
+                <i onClick={heartClickHandler} className={heartClicked ? 'pulse-active fas fa-heart' : 'fas fa-heart'}></i>
             </div>
         </div>
     )

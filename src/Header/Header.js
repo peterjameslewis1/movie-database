@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useHistory } from 'react-router-dom'
 import Nav from './Nav';
 import SearchResults from './SearchResults';
@@ -9,6 +9,8 @@ const Header = props => {
     const [search, setSearch] = useState(false)
     const [query, setQuery] = useState('')
     const [data, setData] = useState([])
+    const wrapperRef = useRef(null);
+
 
     // State to open and close menu's
     const menuClickHandler = () => {
@@ -36,6 +38,7 @@ const Header = props => {
     //
 
 
+
     // KeyPress event to fetch data if Enter is hit and query is not enmpty string
     const keyPress = event => {
         if (event.key === "Enter" && query !== '') {
@@ -44,6 +47,18 @@ const Header = props => {
     }
     //
 
+    const searchBtn = <i className="fas fa-search" onClick={searchClickHandler}></i>
+    document.addEventListener('click', (e) => {
+        if (search === true) {
+            if (e.target === wrapperRef.current) {
+                return;
+            }
+        }
+
+
+
+
+    })
 
     return (
         <div className="header">
@@ -62,14 +77,13 @@ const Header = props => {
 
             <div className="mobile-nav">
                 <div className="burger-menu" onClick={menuClickHandler}><i className="fas fa-bars"></i></div>
-                <div className="search-icon" onClick={searchClickHandler}><i className="fas fa-search"></i></div>
+                {searchBtn}
             </div>
 
             <div className={menu ? 'mobile-menu mobile' : 'mobile-menu'}><Nav /></div>
 
             <div className={search ? 'show-search search' : 'show-search'} >
-                <input type="search" value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Search..." onKeyPress={keyPress} />
-                <i onClick={fetchData} className="fas fa-arrow-circle-right"></i>
+                <input ref={wrapperRef} type="search" value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Search..." onKeyPress={keyPress} />                <i onClick={fetchData} className="fas fa-arrow-circle-right"></i>
                 <SearchResults data={data} state={menu} />
             </div>
         </div>
