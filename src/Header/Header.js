@@ -62,7 +62,7 @@ const Header = props => {
 
     return (
         <div className="header">
-            <div className={window.location.pathname !== '/react-movie-database' ? 'show' : 'hide'}
+            <div className={window.location.pathname !== '/react-movie-database/' ? 'show' : 'hide'}
                 onClick={(e) => goBack()}>
                 <i className="fas fa-arrow-left"></i>
             </div>
