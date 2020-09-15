@@ -6,7 +6,7 @@ const Nav = (props) => {
 
     return (
         <ul>
-            <li><a href="/react-movie-database">Home</a></li>
+            <li><a href="/react-movie-database/">Home</a></li>
             {
                 navArray.map((link, index) => {
                     return (

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 const SearchResults = props => {
     const data = props.data;
+    const pathname = window.location.pathname;
 
 
 
@@ -13,7 +14,7 @@ const SearchResults = props => {
                 {data.map((item, index) => {
                     return (
                         <Link to={{
-                            pathname: `/${item.id}`
+                            pathname: `${pathname}${item.id}`
                         }}
                             className="list-item"
                             key={index}

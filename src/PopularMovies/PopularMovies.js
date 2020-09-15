@@ -15,7 +15,7 @@ const Popular = props => {
     }, [pathname])
 
     async function getPopularMovies() {
-        const response = await fetch(pathname === '/react-movie-database' ? movie : tv);
+        const response = await fetch(pathname === '/react-movie-database/' ? movie : tv);
         const movies = await response.json()
         setData(movies.results)
     }
@@ -28,7 +28,7 @@ const Popular = props => {
                 {data.map((item, index) => {
                     return (
                         <Link to={{
-                            pathname: `${pathname}/${item.id}`
+                            pathname: `${pathname}${item.id}`
                         }}
                             key={index}
                             className="popular-container_movies-item"

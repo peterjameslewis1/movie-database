@@ -16,7 +16,7 @@ const NewReleases = props => {
         let mounted = true;
         if (mounted) {
             async function getNewReleases() {
-                const response = await fetch(pathname === '/react-movie-database' ? movie : tv);
+                const response = await fetch(pathname === '/react-movie-database/' ? movie : tv);
                 const movies = await response.json()
                 setData(movies.results)
             }
@@ -38,7 +38,7 @@ const NewReleases = props => {
                     {data.map((item, index) => {
                         return (
                             <Link to={{
-                                pathname: `${pathname}/${item.id}`
+                                pathname: `${pathname}${item.id}`
                             }} key={index}>
                                 <div
                                     key={index}

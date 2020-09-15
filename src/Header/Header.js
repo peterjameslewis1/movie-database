@@ -67,7 +67,7 @@ const Header = props => {
     return (
         <div className="header">
             <div className={
-                window.location.pathname === '/react-movie-database' || window.location.pathname === 'react-movie-database/tv'
+                window.location.pathname === '/react-movie-database/' || window.location.pathname === 'react-movie-database/tv'
                     ? 'hide'
                     : 'show'
             }
@@ -76,7 +76,7 @@ const Header = props => {
             </div>
             <div className="logo">
                 <span></span>
-                <a href="/react-movie-database">ProShowz</a>
+                <a href="/react-movie-database/">ProShowz</a>
             </div>
 
             <nav className="nav">
@@ -95,8 +95,8 @@ const Header = props => {
                 <SearchResults data={data} state={menu} />
             </div>
             <div className="app-routes">
-                <Link to="/react-movie-database" className={watching ? "app-routes_movies app-routes_active" : "app-routes_movies"} onClick={watchClickHandler}>Movies</Link>
-                <Link to="/react-movie-database/tv" className="app-routes_tv" onClick={watchClickHandler}>TV</Link>
+                <Link to="/react-movie-database/" className={watching ? "app-routes_movies app-routes_active" : "app-routes_movies"} onClick={watchClickHandler}>Movies</Link>
+                <Link to="/react-movie-database/tv/" className="app-routes_tv" onClick={watchClickHandler}>TV</Link>
             </div>
         </div>
     )

@@ -25,7 +25,7 @@ const RecentMovies = props => {
     async function getdropDown() {
         let response;
         let movies;
-        if (pathname === `/react-movie-database`) {
+        if (pathname === `/react-movie-database/`) {
             response = await fetch(upcoming);
         }
         else if (pathname === `/react-movie-database/${props.id}`) {
@@ -57,7 +57,7 @@ const RecentMovies = props => {
                     {data.map((item, index) => {
                         return (
                             <Link to={{
-                                pathname: `${pathname}/${item.id}`
+                                pathname: `${pathname}${item.id}`
                             }}
                                 className="recent-container_items--item"
                                 key={index}>

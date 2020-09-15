@@ -27,7 +27,7 @@ function App() {
       <div className="App">
         <Switch>
 
-          <Route exact path="/react-movie-database">
+          <Route exact path="/react-movie-database/">
             <Header />
             <Slide />
             <PopularMovies title="Popular Movies" />
@@ -36,7 +36,7 @@ function App() {
 
           </Route>
 
-          <Route exact path="/react-movie-database/tv">
+          <Route exact path="/react-movie-database/tv/">
             <Header />
             <Slide />
             <PopularMovies title="Popular Shows" />

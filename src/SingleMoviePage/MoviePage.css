@@ -3,7 +3,8 @@
   margin-top: 80px;
 }
 .single-movie .container {
-  padding: 15px;
+  max-width: 95%;
+  margin: 10px 0;
 }
 .single-movie h2 {
   padding: 15px 15px 0 15px;

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
 import MovieStats from '../MovieStats';
 import RecentMovies from '../RecentMovies/RecentMovies';
 import Header from '../Header/Header';
@@ -12,8 +11,6 @@ const SingleMovie = props => {
     const [data, setData] = useState({
         genres: []
     });
-    const { slug } = useParams();
-    console.log(slug)
     const tvUrl = `https://api.themoviedb.org/3/tv/${id}?api_key=${key}&language=en-US`;
     const movieUrl = `https://api.themoviedb.org/3/movie/${id}?api_key=${key}&language=en-US`;
     const pathname = window.location.pathname;
@@ -75,7 +72,6 @@ const SingleMovie = props => {
                 <Header />
                 <div className="single-movie">
                     <h2>{data.title}</h2>
-                    <h2>{slug}</h2>
                     <ul className="single-movie_info container">
                         <li className="popularity"><i onClick={clickHandler} className={clicked ? 'pulse-active fas fa-star' : 'fas fa-star'}></i>{parseInt(data.popularity)}</li>
                         {/* <li>{movieGenres}</li> */}
