@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { useHistory } from 'react-router-dom'
+import { useHistory, Link } from 'react-router-dom'
 import Nav from './Nav';
 import SearchResults from './SearchResults';
 
@@ -10,6 +10,7 @@ const Header = props => {
     const [query, setQuery] = useState('')
     const [data, setData] = useState([])
     const wrapperRef = useRef(null);
+    const [watching, setWatching] = useState(false)
 
 
     // State to open and close menu's
@@ -18,6 +19,9 @@ const Header = props => {
     }
     const searchClickHandler = () => {
         setSearch(!search)
+    }
+    const watchClickHandler = () => {
+        setWatching(!watching)
     }
     //
 
@@ -62,7 +66,11 @@ const Header = props => {
 
     return (
         <div className="header">
-            <div className={window.location.pathname !== '/react-movie-database/' ? 'show' : 'hide'}
+            <div className={
+                window.location.pathname === '/react-movie-database' || window.location.pathname === 'react-movie-database/tv'
+                    ? 'hide'
+                    : 'show'
+            }
                 onClick={(e) => goBack()}>
                 <i className="fas fa-arrow-left"></i>
             </div>
@@ -85,6 +93,10 @@ const Header = props => {
             <div className={search ? 'show-search search' : 'show-search'} >
                 <input ref={wrapperRef} type="search" value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Search..." onKeyPress={keyPress} />                <i onClick={fetchData} className="fas fa-arrow-circle-right"></i>
                 <SearchResults data={data} state={menu} />
+            </div>
+            <div className="app-routes">
+                <Link to="/react-movie-database" className={watching ? "app-routes_movies app-routes_active" : "app-routes_movies"} onClick={watchClickHandler}>Movies</Link>
+                <Link to="/react-movie-database/tv" className="app-routes_tv" onClick={watchClickHandler}>TV</Link>
             </div>
         </div>
     )

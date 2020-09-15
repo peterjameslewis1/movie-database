@@ -7,8 +7,12 @@ const RecentMovies = props => {
     const key = '8672037f7713f0f454d73f60ab645f36';
     const [clicked, setClicked] = useState(false)
     const [data, setData] = useState([])
-    const similar = `https://api.themoviedb.org/3/movie/${props.id}/similar?api_key=${key}&language=en-US&page=1`;
+    const similarMovie = `https://api.themoviedb.org/3/movie/${props.id}/similar?api_key=${key}&language=en-US&page=1`;
+    const similarTv = `https://api.themoviedb.org/3/tv/${props.id}/similar?api_key=${key}&language=en-US&page=1`;
     const upcoming = `https://api.themoviedb.org/3/movie/upcoming?api_key=${key}&language=en-US&page=1`;
+    const tv = `https://api.themoviedb.org/3/tv/popular?api_key=${key}&language=en-US&page=3`
+
+    const pathname = window.location.pathname;
 
     const clickHandler = () => {
         setClicked(!clicked)
@@ -16,17 +20,24 @@ const RecentMovies = props => {
 
     useEffect(() => {
         getdropDown()
-    }, [])
+    }, [pathname])
 
     async function getdropDown() {
         let response;
         let movies;
-        if (props.title === 'Similar') {
-            response = await fetch(similar);
-        }
-        else {
+        if (pathname === `/react-movie-database`) {
             response = await fetch(upcoming);
         }
+        else if (pathname === `/react-movie-database/${props.id}`) {
+            response = await fetch(similarMovie);
+        }
+        else if (pathname === `/react-movie-database/tv/${props.id}`) {
+            response = await fetch(similarTv);
+        }
+        else {
+            response = await fetch(tv)
+        }
+
 
         movies = await response.json()
         setData(movies.results)
@@ -46,7 +57,7 @@ const RecentMovies = props => {
                     {data.map((item, index) => {
                         return (
                             <Link to={{
-                                pathname: `/${item.id}`
+                                pathname: `${pathname}/${item.id}`
                             }}
                                 className="recent-container_items--item"
                                 key={index}>

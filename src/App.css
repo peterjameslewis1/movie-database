@@ -73,16 +73,17 @@ body .App {
 }
 .stats .rating p {
   margin-right: 7px;
-  margin: 0 0 0 10px;
-}
-.stats .favorite {
-  margin-right: 20px;
+  margin: 0;
 }
 .stats i {
   font-size: 13px;
   color: #df0f62;
   transform: scale(1);
   border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
 }
 .pulse-active {
   animation: pulse 0.5s;

@@ -5,13 +5,17 @@ import { Link } from "react-router-dom";
 const Popular = props => {
     const key = '8672037f7713f0f454d73f60ab645f36';
     const [data, setData] = useState([]);
+    const tv = `https://api.themoviedb.org/3/tv/popular?api_key=${key}&language=en-US&page=2`
+    const movie = `https://api.themoviedb.org/3/movie/popular?api_key=${key}&language=en-US&page=2`;
+
+    const pathname = window.location.pathname;
 
     useEffect(() => {
         getPopularMovies()
-    }, [])
+    }, [pathname])
 
     async function getPopularMovies() {
-        const response = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${key}&language=en-US&page=2`);
+        const response = await fetch(pathname === '/react-movie-database' ? movie : tv);
         const movies = await response.json()
         setData(movies.results)
     }
@@ -24,7 +28,7 @@ const Popular = props => {
                 {data.map((item, index) => {
                     return (
                         <Link to={{
-                            pathname: `/${item.id}`
+                            pathname: `${pathname}/${item.id}`
                         }}
                             key={index}
                             className="popular-container_movies-item"

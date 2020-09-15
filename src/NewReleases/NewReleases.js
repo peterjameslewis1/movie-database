@@ -7,12 +7,16 @@ import MovieStats from '../MovieStats';
 const NewReleases = props => {
     const key = '8672037f7713f0f454d73f60ab645f36';
     const [data, setData] = useState([]);
+    const tv = `https://api.themoviedb.org/3/tv/top_rated?api_key=${key}&language=en-US&page=1`
+    const movie = `https://api.themoviedb.org/3/movie/now_playing?api_key=${key}&language=en-US&page=1`
+
+    const pathname = window.location.pathname;
 
     useEffect(() => {
         let mounted = true;
         if (mounted) {
             async function getNewReleases() {
-                const response = await fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${key}&language=en-US&page=1`);
+                const response = await fetch(pathname === '/react-movie-database' ? movie : tv);
                 const movies = await response.json()
                 setData(movies.results)
             }
@@ -22,7 +26,7 @@ const NewReleases = props => {
         return () => {
             mounted = false;
         }
-    }, [])
+    }, [pathname])
 
 
     return (
@@ -34,7 +38,7 @@ const NewReleases = props => {
                     {data.map((item, index) => {
                         return (
                             <Link to={{
-                                pathname: `/${item.id}`
+                                pathname: `${pathname}/${item.id}`
                             }} key={index}>
                                 <div
                                     key={index}

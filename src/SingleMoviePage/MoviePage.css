@@ -50,6 +50,9 @@
   font-size: 16px;
   color: darkgray;
 }
+.single-movie_text .recent {
+  padding: 0;
+}
 .single-movie .rating {
   text-align: center;
 }
