@@ -11,14 +11,23 @@ const Popular = props => {
     const pathname = window.location.pathname;
 
     useEffect(() => {
-        getPopularMovies()
-    }, [pathname])
+        let mounted = true;
+        if (mounted) {
+            const getPopularMovies = async () => {
+                const response = await fetch(pathname === '/react-movie-database/' ? movie : tv);
+                const movies = await response.json()
+                setData(movies.results)
+            };
+            getPopularMovies();
+        }
 
-    async function getPopularMovies() {
-        const response = await fetch(pathname === '/react-movie-database/' ? movie : tv);
-        const movies = await response.json()
-        setData(movies.results)
-    }
+
+        return () => {
+            mounted = false;
+        }
+    }, [pathname, movie, tv])
+
+
 
 
     return (

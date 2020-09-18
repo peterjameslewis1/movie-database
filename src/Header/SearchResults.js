@@ -14,7 +14,7 @@ const SearchResults = props => {
                 {data.map((item, index) => {
                     return (
                         <Link to={{
-                            pathname: `${pathname}${item.id}`
+                            pathname: `${item.id}`
                         }}
                             className="list-item"
                             key={index}

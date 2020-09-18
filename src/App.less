@@ -1,7 +1,7 @@
 @import './Header/Header.css';
 @import './Slider/slide.css';
 @import './PopularMovies/Popular.css';
-@import './NewReleases/NewReleases.css';
+// @import './NewReleases/NewReleases.css';
 @import './Footer/Footer.css';
 @import './SingleMoviePage/MoviePage.css';
 
@@ -87,27 +87,26 @@ body {
 
     .rating {
         display: flex;
-        align-items: center;
+        align-items: flex-start;
 
         p {
             margin-right: 7px;
             margin: 0;
         }
+
+        i {
+            margin-right: 5px;
+        }
     }
 
-    // .favorite {
-    //     margin-right: 20px;
-
-
-    // }
+    .favorite {
+        margin-right: 20px;
+    }
 
     i {
-        font-size: 13px;
         color: #df0f62;
         transform: scale(1);
         border-radius: 50%;
-        width: 20px;
-        height: 20px;
         display: flex;
         align-items: center;
     }
@@ -139,6 +138,16 @@ body {
 }
 
 // RecentMovies Styles 
+
+.fa-caret-up {
+    transform: rotate(0deg);
+    transition: all 0.7s;
+}
+
+.rotate {
+    transform: rotate(180deg);
+}
+
 .recent {
     margin-top: 80px;
     padding: 10px;
@@ -156,10 +165,6 @@ body {
             margin: 20px 0;
             padding: 0;
             font-size: 24px;
-        }
-
-        i {
-            padding: 20px 10px 20px 20px;
         }
     }
 
@@ -216,6 +221,31 @@ body {
         height: 0 !important;
         overflow: hidden;
     }
+
 }
 
 // DropDown Styles End
+
+
+
+.results {
+    position: relative;
+    top: 70px;
+
+    &-container {
+        flex-wrap: wrap;
+        display: flex;
+        background-color: #222222;
+
+        a {
+            flex: 1 1 45%;
+            margin: 10px;
+            background-repeat: no-repeat !important;
+            background-size: cover !important;
+            background-position: center top !important;
+            width: 100%;
+            height: 280px;
+            border-radius: 7px;
+        }
+    }
+}

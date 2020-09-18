@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import MovieStats from '../MovieStats';
 
 
-const RecentMovies = props => {
+const Dropdown = props => {
     const key = '8672037f7713f0f454d73f60ab645f36';
     const [clicked, setClicked] = useState(false)
     const [data, setData] = useState([])
@@ -19,45 +19,49 @@ const RecentMovies = props => {
     }
 
     useEffect(() => {
-        getdropDown()
+        let mounted = true;
+        if (mounted) {
+            const getdropDown = async () => {
+                let response;
+                let movies;
+                if (pathname === `/react-movie-database/`) {
+                    response = await fetch(upcoming);
+                }
+                else if (pathname === `/react-movie-database/${props.id}`) {
+                    response = await fetch(similarMovie);
+                }
+                else if (pathname === `/react-movie-database/tv/${props.id}`) {
+                    response = await fetch(similarTv);
+                }
+                else {
+                    response = await fetch(tv)
+                }
+
+
+                movies = await response.json()
+                setData(movies.results)
+            }
+            getdropDown()
+        }
     }, [pathname])
-
-    async function getdropDown() {
-        let response;
-        let movies;
-        if (pathname === `/react-movie-database/`) {
-            response = await fetch(upcoming);
-        }
-        else if (pathname === `/react-movie-database/${props.id}`) {
-            response = await fetch(similarMovie);
-        }
-        else if (pathname === `/react-movie-database/tv/${props.id}`) {
-            response = await fetch(similarTv);
-        }
-        else {
-            response = await fetch(tv)
-        }
-
-
-        movies = await response.json()
-        setData(movies.results)
-    }
 
 
 
     return (
         <div className="recent">
-            <div className="title">
+            <div className="title" onClick={clickHandler}>
                 <h2>{props.title}</h2>
-                <i onClick={clickHandler}
-                    className="fas fa-caret-up"></i>
+                <i className={clicked ? 'fas fa-caret-up rotate' : 'fas fa-caret-up'}></i>
             </div>
             <div className={clicked ? 'hidden recent-container' : 'recent-container'}>
                 <div className="recent-container_items">
                     {data.map((item, index) => {
+
+
+
                         return (
                             <Link to={{
-                                pathname: `${pathname}${item.id}`
+                                pathname: `${item.id}`
                             }}
                                 className="recent-container_items--item"
                                 key={index}>
@@ -77,4 +81,4 @@ const RecentMovies = props => {
     )
 }
 
-export default RecentMovies;
+export default Dropdown;

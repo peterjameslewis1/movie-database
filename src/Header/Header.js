@@ -35,7 +35,7 @@ const Header = props => {
         if (query === '') {
             return;
         }
-        const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${key}&language=en-US&query=${query}&page=1&include_adult=false`);
+        const response = await fetch(`https://api.themoviedb.org/3/search/multi?api_key=${key}&language=en-US&query=${query}&page=1&include_adult=false`);
         const movies = await response.json()
         setData(movies.results)
     };
@@ -58,10 +58,6 @@ const Header = props => {
                 return;
             }
         }
-
-
-
-
     })
 
     return (
@@ -79,16 +75,16 @@ const Header = props => {
                 <a href="/react-movie-database/">ProShowz</a>
             </div>
 
-            <nav className="nav">
+            {/* <nav className="nav">
                 <Nav />
-            </nav>
+            </nav> */}
 
             <div className="mobile-nav">
                 <div className="burger-menu" onClick={menuClickHandler}><i className="fas fa-bars"></i></div>
                 {searchBtn}
             </div>
 
-            <div className={menu ? 'mobile-menu mobile' : 'mobile-menu'}><Nav /></div>
+            <div ref={wrapperRef} className={menu ? 'mobile-menu mobile' : 'mobile-menu'}><Nav closeMenu={menuClickHandler} /></div>
 
             <div className={search ? 'show-search search' : 'show-search'} >
                 <input ref={wrapperRef} type="search" value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Search..." onKeyPress={keyPress} />                <i onClick={fetchData} className="fas fa-arrow-circle-right"></i>

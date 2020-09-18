@@ -11,7 +11,6 @@ const Slide = (props) => {
     const tv = `https://api.themoviedb.org/3/tv/popular?api_key=${key}&language=en-US&page=1`
     const movie = `https://api.themoviedb.org/3/movie/popular?api_key=${key}&language=en-US&page=1`
     const pathname = window.location.pathname;
-    console.log(pathname)
 
     useEffect(() => {
         let mounted = true;
@@ -27,7 +26,7 @@ const Slide = (props) => {
         return () => {
             mounted = false;
         }
-    }, [pathname])
+    }, [pathname, movie, tv])
 
     return (
         <Slider autoplay={4000}
@@ -37,7 +36,7 @@ const Slide = (props) => {
             {data.map((item, index) => {
                 return (
                     <Link to={{
-                        pathname: `${pathname}${item.id}`
+                        pathname: `${item.id}`
                     }} key={index}>
 
                         <div

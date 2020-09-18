@@ -83,25 +83,25 @@
   color: #df0f61;
 }
 .header .mobile {
-  height: 320px !important;
+  width: 80% !important;
   padding: 20px;
-  border: 1px grey solid;
 }
 .header .mobile-menu {
   margin: 0;
-  top: 75px;
+  top: 0;
   box-sizing: border-box;
   display: unset;
-  width: 90%;
+  width: 0%;
   z-index: 99;
-  left: 5%;
-  right: 5%;
-  border-radius: 7px;
+  left: 0;
+  right: 0;
+  border-radius: 0;
   position: absolute;
   background: #222222;
-  height: 0px;
+  height: 100vh;
   overflow: hidden;
   transition: all 0.5s;
+  white-space: nowrap;
 }
 .header .mobile-menu ul {
   margin: 0;
@@ -109,17 +109,39 @@
 }
 .header .mobile-menu ul li {
   padding: 10px 0;
-  color: #df0f61;
+  color: white;
   list-style: none;
   margin-right: 5px;
+  font-size: 24px;
+  font-weight: 200;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .header .mobile-menu ul li:first-child a {
   color: #df0f61;
+  font-size: 30px;
 }
 .header .mobile-menu ul li a {
   text-decoration: none;
   color: white;
   font-size: 18px;
+}
+.header .genres-menu {
+  transition: all 0.7s;
+  overflow: hidden;
+  height: 0px;
+  display: flex;
+  flex-direction: column;
+}
+.header .genres-menu a {
+  color: white;
+  list-style: none;
+  text-decoration: none;
+  margin: 5px 0;
+}
+.header .open {
+  height: 450px !important;
 }
 .header .list {
   margin: -2px 0 0 0;

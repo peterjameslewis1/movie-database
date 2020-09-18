@@ -4,7 +4,7 @@
 }
 .single-movie .container {
   max-width: 95%;
-  margin: 10px 0;
+  margin: 15px auto;
 }
 .single-movie h2 {
   padding: 15px 15px 0 15px;
@@ -18,11 +18,14 @@
 .single-movie_info {
   position: relative;
   display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 10px auto !important;
 }
 .single-movie_info li {
   color: darkgray;
   font-size: 12px;
-  margin-right: 5px;
+  margin: 5px 5px 0 5px;
   list-style: none;
   flex: auto;
   text-align: left;
@@ -43,13 +46,14 @@
 .single-movie_text h3 {
   font-size: 24px;
   font-weight: 200;
-  margin: 0;
+  margin: 10px 0 0 0;
   text-transform: uppercase;
 }
 .single-movie_text p {
   font-weight: 100;
   font-size: 16px;
   color: darkgray;
+  margin: 10px 0;
 }
 .single-movie_text .recent {
   padding: 0;

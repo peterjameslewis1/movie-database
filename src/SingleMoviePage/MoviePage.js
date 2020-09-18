@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import MovieStats from '../MovieStats';
-import RecentMovies from '../RecentMovies/RecentMovies';
+import Dropdown from '../Dropdown/Dropdown';
 import Header from '../Header/Header';
 import MovieRating from './MovieRating';
 
@@ -15,15 +15,9 @@ const SingleMovie = props => {
     const movieUrl = `https://api.themoviedb.org/3/movie/${id}?api_key=${key}&language=en-US`;
     const pathname = window.location.pathname;
 
-    // console.log(props)
     console.log(id)
-    // console.log(data)
-    console.log(`${pathname}`)
-    // console.log(props)
-    // pathname === `/react-movie-database/${id}` ? movieUrl : tvUrl
-
-
     useEffect(() => {
+        window.scrollTo(0, 0)
         let mounted = true;
         if (mounted) {
             const fetchData = async () => {
@@ -42,14 +36,6 @@ const SingleMovie = props => {
 
 
 
-    // Mapping over movie genres
-    // const movieGenres = (
-    //     data.genres.map(item => {
-    //         return <span key={item.id}>{item.name}, </span>
-    //     })
-    // )
-    //
-
     // Converting movie runtime from minutes into hours & minutes
     const movieRuntime = (
         <li>{Math.floor(data.runtime / 60)}h {data.runtime % 60}mins</li>
@@ -64,13 +50,21 @@ const SingleMovie = props => {
         setClicked(!clicked)
     }
     //
+    console.log(props)
 
 
     if (pathname === `/react-movie-database/${id}`) {
+        // Mapping over movie genres
+        const movieGenres = (
+            data.genres.map(item => {
+                return <span key={item.id}>{item.name}, </span>
+            })
+        )
+        //
         return (
             <>
                 <Header />
-                <div className="single-movie">
+                <div className="single-movie" >
                     <h2>{data.title}</h2>
                     <ul className="single-movie_info container">
                         <li className="popularity"><i onClick={clickHandler} className={clicked ? 'pulse-active fas fa-star' : 'fas fa-star'}></i>{parseInt(data.popularity)}</li>
@@ -88,7 +82,7 @@ const SingleMovie = props => {
                         <span></span>
                         <p>{data.overview}</p>
                         <MovieRating id={id} totalStars={10} />
-                        <RecentMovies title="Similar" id={id} />
+                        <Dropdown title="Similar" id={id} />
                     </div>
                 </div >
             </>
@@ -104,7 +98,7 @@ const SingleMovie = props => {
                         <li className="popularity"><i onClick={clickHandler} className={clicked ? 'pulse-active fas fa-star' : 'fas fa-star'}></i>{parseInt(data.popularity)}</li>
                         {/* <li>{movieGenres}</li> */}
                         {pathname === `/react-movie-database/${id}` ? movieRuntime : tvRuntime}
-                        <li>{data.release_date}</li>
+                        <li>{data.first_air_date}</li>
                     </ul>
                     <div className="single-movie_img"
                         style={{ background: `url('https://image.tmdb.org/t/p/original${data.poster_path}?api_key=8672037f7713f0f454d73f60ab645f36')` }}
@@ -112,11 +106,15 @@ const SingleMovie = props => {
                     </div>
                     <div className="single-movie_text container">
                         <MovieStats stat={data.vote_average} />
-                        <h3>{data.tagline}</h3>
+                        <div className="single-movie_text-links">
+                            <a href={data.homepage}>Watch here</a>
+                            <a href=""></a>
+                        </div>
+                        <h4>{data.status}</h4>
                         <span></span>
                         <p>{data.overview}</p>
                         <MovieRating id={id} totalStars={10} />
-                        <RecentMovies title="Similar" id={id} />
+                        <Dropdown title="Similar" id={id} />
                     </div>
                 </div >
             </>

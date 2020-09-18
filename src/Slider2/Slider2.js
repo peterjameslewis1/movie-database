@@ -4,7 +4,7 @@ import Slider from 'react-animated-slider';
 import 'react-animated-slider/build/horizontal.css';
 import MovieStats from '../MovieStats';
 
-const NewReleases = props => {
+const Slider2 = props => {
     const key = '8672037f7713f0f454d73f60ab645f36';
     const [data, setData] = useState([]);
     const tv = `https://api.themoviedb.org/3/tv/top_rated?api_key=${key}&language=en-US&page=1`
@@ -26,7 +26,7 @@ const NewReleases = props => {
         return () => {
             mounted = false;
         }
-    }, [pathname])
+    }, [pathname, movie, tv])
 
 
     return (
@@ -63,4 +63,4 @@ const NewReleases = props => {
     )
 }
 
-export default NewReleases;
+export default Slider2;

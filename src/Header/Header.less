@@ -113,27 +113,26 @@
 
 
     .mobile {
-        height: 320px !important;
+        width: 80% !important;
         padding: 20px;
-        border: 1px grey solid;
     }
 
     .mobile-menu {
         margin: 0;
-        top: 75px;
+        top: 0;
         box-sizing: border-box;
         display: unset;
-        width: 90%;
+        width: 0%;
         z-index: 99;
-        left: 5%;
-        right: 5%;
-        border-radius: 7px;
+        left: 0;
+        right: 0;
+        border-radius: 0;
         position: absolute;
         background: #222222;
-        height: 0px;
+        height: 100vh;
         overflow: hidden;
-        // animation: slidein 2s linear 1s forwards;
         transition: all 0.5s;
+        white-space: nowrap;
 
 
 
@@ -143,13 +142,21 @@
 
             li {
                 padding: 10px 0;
-                color: #df0f61;
+                color: white;
                 list-style: none;
                 margin-right: 5px;
+                font-size: 24px;
+                font-weight: 200;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+
 
                 &:first-child {
                     a {
                         color: #df0f61;
+                        font-size: 30px;
                     }
                 }
 
@@ -160,6 +167,27 @@
                 }
             }
         }
+    }
+
+
+
+    .genres-menu {
+        transition: all 0.7s;
+        overflow: hidden;
+        height: 0px;
+        display: flex;
+        flex-direction: column;
+
+        a {
+            color: white;
+            list-style: none;
+            text-decoration: none;
+            margin: 5px 0;
+        }
+    }
+
+    .open {
+        height: 450px !important;
     }
 
     // SearchResults Styles
