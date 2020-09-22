@@ -67,9 +67,6 @@
   font-size: 28px;
   font-weight: 900;
 }
-.header .nav {
-  display: none;
-}
 .header .list {
   margin: -2px 0 0 0;
   box-sizing: border-box;
