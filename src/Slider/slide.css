@@ -1,22 +1,18 @@
-#slide-container {
+.swiper-container {
+  height: 80vh;
+  margin-top: 90px;
+}
+.swiper-container .swiper-wrapper {
+  height: 100%;
+}
+.swiper-container .swiper-wrapper .swiper-slide {
+  width: 100%;
+  height: 100%;
   background-repeat: no-repeat !important;
   background-size: cover !important;
   background-position: center top !important;
-  width: 100%;
-  height: 100%;
 }
-
-.slider {
-  height: 600px;
-  margin-top: 78px;
-}
-
-.previousButton,
-.nextButton {
-  display: none;
-}
-
-.track .slide .center {
+.swiper-container .swiper-wrapper .swiper-slide .center {
   position: absolute;
   bottom: 0px;
   left: 0;
@@ -26,20 +22,21 @@
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.03) 0%, #000000 60%, black 100%);
   padding: 20px;
 }
-
-.track .slide .center h1 {
+.swiper-container .swiper-wrapper .swiper-slide .center h1 {
   margin: 0;
   font-weight: 500;
   text-align: left;
   cursor: pointer;
 }
-
-.track .slide .center h1:hover {
+.swiper-container .swiper-wrapper .swiper-slide .center h1:hover {
   text-decoration: underline;
 }
-
-.track .slide .center p {
+.swiper-container .swiper-wrapper .swiper-slide .center p {
   font-size: 16px;
   font-weight: 200;
   margin: 15px 0 0 0;
+}
+.previousButton,
+.nextButton {
+  display: none;
 }

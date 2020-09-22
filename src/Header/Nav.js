@@ -27,7 +27,6 @@ const Nav = (props) => {
     }
 
 
-    console.log(data)
 
     return (
         <ul>
