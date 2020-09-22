@@ -2,6 +2,9 @@
   height: 80vh;
   margin-top: 90px;
 }
+.swiper-container .swiper-pagination {
+  bottom: 0;
+}
 .swiper-container .swiper-wrapper {
   height: 100%;
 }
@@ -11,8 +14,15 @@
   background-repeat: no-repeat !important;
   background-size: cover !important;
   background-position: center top !important;
+  position: relative;
 }
-.swiper-container .swiper-wrapper .swiper-slide .center {
+.swiper-container .swiper-wrapper .swiper-slide a {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.swiper-container .swiper-wrapper .swiper-slide a .center {
   position: absolute;
   bottom: 0px;
   left: 0;
@@ -22,16 +32,16 @@
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.03) 0%, #000000 60%, black 100%);
   padding: 20px;
 }
-.swiper-container .swiper-wrapper .swiper-slide .center h1 {
+.swiper-container .swiper-wrapper .swiper-slide a .center h1 {
   margin: 0;
   font-weight: 500;
   text-align: left;
   cursor: pointer;
 }
-.swiper-container .swiper-wrapper .swiper-slide .center h1:hover {
+.swiper-container .swiper-wrapper .swiper-slide a .center h1:hover {
   text-decoration: underline;
 }
-.swiper-container .swiper-wrapper .swiper-slide .center p {
+.swiper-container .swiper-wrapper .swiper-slide a .center p {
   font-size: 16px;
   font-weight: 200;
   margin: 15px 0 0 0;

@@ -2,11 +2,15 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link } from "react-router-dom";
 import Slider from 'react-animated-slider';
 // core version + navigation, pagination modules:
-import Swiper, { Navigation, Pagination, Autoplay } from 'swiper';
-import 'swiper/swiper-bundle.css';
+import SwiperCore, { Navigation, Pagination, Autoplay } from 'swiper';
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/swiper.scss';
+import 'swiper/components/navigation/navigation.scss';
+import 'swiper/components/pagination/pagination.scss';
 import '../App.css';
 // configure Swiper to use modules
-Swiper.use([Navigation, Pagination, Autoplay]);
+SwiperCore.use([Navigation, Pagination, Autoplay]);
 
 
 
@@ -40,27 +44,26 @@ const Slide = (props) => {
     console.log(data)
 
     // Slider.js Initialization
-    const swiper = new Swiper('.swiper-container', {
-        direction: 'horizontal',
-        zoom: {
-            maxRatio: 5,
-        },
-        // If we need pagination
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
+    // const swiper = new Swiper('.swiper-container', {
+    //     zoom: {
+    //         maxRatio: 5,
+    //     },
+    //     // If we need pagination
+    //     pagination: {
+    //         el: '.swiper-pagination',
+    //         clickable: true,
+    //     },
 
-        // Navigation arrows
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-        autoplay: {
-            delay: 1500,
-        },
-        loop: true,
-    })
+    //     // Navigation arrows
+    //     navigation: {
+    //         nextEl: '.swiper-button-next',
+    //         prevEl: '.swiper-button-prev',
+    //     },
+    //     autoplay: {
+    //         delay: 1500,
+    //     },
+    //     loop: true
+    // })
 
 
 
@@ -88,17 +91,24 @@ const Slide = (props) => {
         //         )
         //     })}
         // </Slider>
+        <Swiper
+            spaceBetween={50}
+            autoplay={true}
+            navigation
+            pagination={{ clickable: true }}
+            scrollbar={{ draggable: true }}
+            onSwiper={(swiper) => console.log(swiper)}
+            onSlideChange={() => console.log('slide change')}
+        >
 
-        <div class="swiper-container">
+            {data.map((item, index) => {
+                return (
 
-            <div class="swiper-wrapper">
-                {data.map((item, index) => {
-                    return (
+                    <SwiperSlide style={{ background: `url('https://image.tmdb.org/t/p/original${item.poster_path}?api_key=8672037f7713f0f454d73f60ab645f36')` }}
+                    >
                         <Link to={{
                             pathname: `${item.id}`
                         }} key={index}
-                            className="swiper-slide"
-                            style={{ background: `url('https://image.tmdb.org/t/p/original${item.poster_path}?api_key=8672037f7713f0f454d73f60ab645f36')` }}
                         >
 
 
@@ -107,27 +117,50 @@ const Slide = (props) => {
                                 <p>{item.overview}</p>
                             </div>
                         </Link>
-                    )
-                })}
-                {/* <div class="swiper-slide">Slide 1</div>
-                <div class="swiper-slide">Slide 2</div>
-                <div class="swiper-slide">Slide 3</div>
-                <div class="swiper-slide">Slide 4</div>
-                <div class="swiper-slide">Slide 5</div>
-                <div class="swiper-slide">Slide 6</div>
-                <div class="swiper-slide">Slide 7</div>
-                <div class="swiper-slide">Slide 8</div>
-                <div class="swiper-slide">Slide 9</div>
-                <div class="swiper-slide">Slide 10</div> */}
-            </div>
+                    </SwiperSlide>
 
-            <div class="swiper-pagination"></div>
+                )
+            })}
 
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
+            {/* <SwiperSlide>Slide 1</SwiperSlide>
+            <SwiperSlide>Slide 2</SwiperSlide>
+            <SwiperSlide>Slide 3</SwiperSlide>
+            <SwiperSlide>Slide 4</SwiperSlide> */}
+      ...
+        </Swiper>
 
-            <div class="swiper-scrollbar"></div>
-        </div>
+
+        // <div class="swiper-container">
+
+        //     <div class="swiper-wrapper">
+        //         {data.map((item, index) => {
+        //             return (
+        //                 <Link to={{
+        //                     pathname: `${item.id}`
+        //                 }} key={index}
+        //                     className="swiper-slide"
+        //                     style={{ background: `url('https://image.tmdb.org/t/p/original${item.poster_path}?api_key=8672037f7713f0f454d73f60ab645f36')` }}
+        //                 >
+
+
+        //                     <div className="center" >
+        //                         <h1>{pathname === '/react-movie-database/' ? item.title : item.name}</h1>
+        //                         <p>{item.overview}</p>
+        //                     </div>
+        //                 </Link>
+        //             )
+        //         })}
+        //     </div>
+
+        //     <div class="swiper-pagination"></div>
+
+        //     <div class="swiper-button-prev"></div>
+        //     <div class="swiper-button-next"></div>
+
+        //     <div class="swiper-scrollbar"></div>
+        // </div>
+
+
     )
 }
 
