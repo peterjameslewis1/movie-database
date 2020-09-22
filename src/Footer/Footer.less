@@ -7,7 +7,7 @@
         padding: 0 15px;
     }
 
-    ul {
+    .nav {
         padding: 0;
         margin: 0;
         display: flex;
@@ -19,7 +19,14 @@
             list-style: none;
             margin: 10px 0;
             cursor: pointer;
-            display: inline-block;
+            display: flex;
+            justify-content: space-between;
+
+            &:first-child {
+                i {
+                    display: none;
+                }
+            }
 
             a {
                 text-decoration: none;
@@ -107,6 +114,8 @@
                 display: flex;
                 flex-direction: row;
                 justify-content: space-evenly;
+                list-style-type: none;
+
 
                 li {
                     margin: 0;

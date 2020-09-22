@@ -3,9 +3,6 @@
 @import 'PopularMovies/Popular.css';
 @import 'Footer/Footer.css';
 @import 'SingleMoviePage/MoviePage.css';
-.slide {
-  color: white;
-}
 h2 {
   text-transform: uppercase;
   font-weight: 200;
@@ -38,6 +35,7 @@ body .App {
   background: #131212;
   color: white;
   font-family: Helvetica, Arial, sans-serif;
+  padding-top: 90px;
 }
 .hide {
   display: none;
@@ -115,7 +113,7 @@ body .App {
   transform: rotate(180deg);
 }
 .recent {
-  margin-top: 80px;
+  margin-top: 50px;
   padding: 10px;
 }
 .recent .title {
@@ -194,4 +192,135 @@ body .App {
   width: 100%;
   height: 280px;
   border-radius: 7px;
+}
+.swiper-container:last-of-type {
+  margin: 0;
+}
+.swiper-container {
+  height: 80vh;
+}
+.swiper-container .swiper-pagination {
+  bottom: 0;
+}
+.swiper-container .swiper-wrapper {
+  height: 100%;
+}
+.swiper-container .swiper-wrapper .swiper-slide {
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-position: center top !important;
+  position: relative;
+}
+.swiper-container .swiper-wrapper .swiper-slide a {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.swiper-container .swiper-wrapper .swiper-slide a .center {
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  color: white;
+  text-align: left;
+  z-index: 99999;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.7) 25%, rgba(0, 0, 0, 0.85) 40%, black 100%);
+  padding: 20px;
+}
+.swiper-container .swiper-wrapper .swiper-slide a .center h2 {
+  margin: 20px 0 0 0;
+  font-weight: 100;
+  text-align: left;
+  cursor: pointer;
+  padding: 0;
+  font-size: 34px;
+}
+.swiper-container .swiper-wrapper .swiper-slide a .center h2:hover {
+  text-decoration: underline;
+}
+.swiper-container .swiper-wrapper .swiper-slide a .center p {
+  font-size: 16px;
+  font-weight: 200;
+  margin: 15px 0 0 0;
+}
+.swiper-container .swiper-wrapper .swiper-slide a:hover .description {
+  bottom: 0px;
+}
+.swiper-container .swiper-wrapper .swiper-slide a:hover .description p {
+  color: white;
+}
+.mobile-nav {
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  flex: 15%;
+}
+.mobile-nav i {
+  font-size: 18px;
+}
+.mobile-nav .fa-search {
+  color: #df0f61;
+}
+.mobile {
+  width: 80% !important;
+  padding: 20px;
+}
+.mobile-menu {
+  margin: 0;
+  top: 0;
+  box-sizing: border-box;
+  display: unset;
+  width: 0%;
+  z-index: 99;
+  left: 0;
+  right: 0;
+  border-radius: 0;
+  position: absolute;
+  background: #222222;
+  height: 100vh;
+  overflow: hidden;
+  transition: all 0.5s;
+  white-space: nowrap;
+}
+.mobile-menu ul {
+  margin: 0;
+  padding: 0;
+}
+.mobile-menu ul li {
+  padding: 10px 0;
+  color: white;
+  list-style: none;
+  margin-right: 5px;
+  font-size: 24px;
+  font-weight: 200;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.mobile-menu ul li:first-child a {
+  color: #df0f61;
+  font-size: 30px;
+}
+.mobile-menu ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+}
+.genres-menu {
+  transition: all 0.7s;
+  overflow: hidden;
+  height: 0px;
+  display: flex;
+  flex-direction: column;
+}
+.genres-menu a {
+  color: white;
+  list-style: none;
+  text-decoration: none;
+  margin: 5px 0;
+}
+.open {
+  height: 450px !important;
 }

@@ -11,6 +11,7 @@ const Nav = (props) => {
     const tvGenreUrl = `https://api.themoviedb.org/3/genre/tv/list?api_key=${key}&language=en-US`
     const pathname = window.location.pathname;
 
+
     const getGenres = async () => {
         const response = await fetch(genre ? movieGenreUrl : tvGenreUrl);
         const genres = await response.json()
@@ -29,7 +30,7 @@ const Nav = (props) => {
 
 
     return (
-        <ul>
+        <ul className="nav">
             <li className="nav-link"><a href="/react-movie-database/">Home</a><i onClick={props.closeMenu} className="fas fa-times"></i></li>
             <li onClick={() => {
                 genreHandler();

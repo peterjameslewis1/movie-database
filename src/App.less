@@ -6,9 +6,6 @@
 @import './SingleMoviePage/MoviePage.css';
 
 
-.slide {
-    color: white;
-}
 
 h2 {
     text-transform: uppercase;
@@ -46,6 +43,7 @@ body {
         background: rgb(19, 18, 18);
         color: white;
         font-family: Helvetica, Arial, sans-serif;
+        padding-top: 90px;
     }
 }
 
@@ -149,7 +147,7 @@ body {
 }
 
 .recent {
-    margin-top: 80px;
+    margin-top: 50px;
     padding: 10px;
 
     .title {
@@ -248,4 +246,196 @@ body {
             border-radius: 7px;
         }
     }
+}
+
+.swiper-container:last-of-type {
+    margin: 0;
+}
+
+.swiper-container {
+    height: 80vh;
+
+    .swiper-pagination {
+        bottom: 0;
+    }
+
+    .swiper-wrapper {
+        height: 100%;
+
+        .swiper-slide {
+            width: 100%;
+            height: 100%;
+            background-repeat: no-repeat !important;
+            background-size: cover !important;
+            background-position: center top !important;
+            position: relative;
+
+            a {
+                position: absolute;
+                left: 0;
+                width: 100%;
+                height: 100%;
+
+                .center {
+                    position: absolute;
+                    bottom: 0px;
+                    left: 0;
+                    color: white;
+                    text-align: left;
+                    z-index: 99999;
+                    background: linear-gradient(180deg, rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.7) 25%, rgba(0, 0, 0, 0.85) 40%, black 100%);
+                    padding: 20px;
+
+                    h2 {
+                        margin: 20px 0 0 0;
+                        font-weight: 100;
+                        text-align: left;
+                        cursor: pointer;
+                        padding: 0;
+                        font-size: 34px;
+
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+
+                    p {
+                        font-size: 16px;
+                        font-weight: 200;
+                        margin: 15px 0 0 0;
+                    }
+                }
+
+                // .description {
+                //     position: absolute;
+                //     bottom: 0;
+                //     left: 0;
+                //     z-index: 99999;
+                //     background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #0000009f 60%, black 100%);
+
+                //     padding: 20px;
+
+                //     h2 {
+                //         font-size: 24px;
+                //         margin: 10px 0;
+                //         font-weight: 400;
+                //         text-align: left;
+                //         padding: 0;
+                //     }
+
+                //     p {
+                //         color: white;
+                //     }
+                // }
+
+                &:hover {
+                    .description {
+                        bottom: 0px;
+
+                        p {
+                            color: white;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+// Nav Open/Close Styles
+
+.mobile-nav {
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    flex: 15%;
+
+    i {
+        font-size: 18px;
+    }
+
+    .fa-search {
+        color: #df0f61;
+    }
+}
+
+
+.mobile {
+    width: 80% !important;
+    padding: 20px;
+}
+
+.mobile-menu {
+    margin: 0;
+    top: 0;
+    box-sizing: border-box;
+    display: unset;
+    width: 0%;
+    z-index: 99;
+    left: 0;
+    right: 0;
+    border-radius: 0;
+    position: absolute;
+    background: #222222;
+    height: 100vh;
+    overflow: hidden;
+    transition: all 0.5s;
+    white-space: nowrap;
+
+
+
+    ul {
+        margin: 0;
+        padding: 0;
+
+        li {
+            padding: 10px 0;
+            color: white;
+            list-style: none;
+            margin-right: 5px;
+            font-size: 24px;
+            font-weight: 200;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+
+
+            &:first-child {
+                a {
+                    color: #df0f61;
+                    font-size: 30px;
+                }
+            }
+
+            a {
+                text-decoration: none;
+                color: white;
+                font-size: 18px;
+            }
+        }
+    }
+}
+
+
+
+.genres-menu {
+    transition: all 0.7s;
+    overflow: hidden;
+    height: 0px;
+    display: flex;
+    flex-direction: column;
+
+    a {
+        color: white;
+        list-style: none;
+        text-decoration: none;
+        margin: 5px 0;
+    }
+}
+
+.open {
+    height: 450px !important;
 }

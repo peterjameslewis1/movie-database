@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from "react-router-dom";
-import Slider from 'react-animated-slider';
 // core version + navigation, pagination modules:
 import SwiperCore, { Navigation, Pagination, Autoplay } from 'swiper';
 
@@ -41,29 +40,6 @@ const Slide = (props) => {
             mounted = false;
         }
     }, [pathname, movie, tv])
-    console.log(data)
-
-    // Slider.js Initialization
-    // const swiper = new Swiper('.swiper-container', {
-    //     zoom: {
-    //         maxRatio: 5,
-    //     },
-    //     // If we need pagination
-    //     pagination: {
-    //         el: '.swiper-pagination',
-    //         clickable: true,
-    //     },
-
-    //     // Navigation arrows
-    //     navigation: {
-    //         nextEl: '.swiper-button-next',
-    //         prevEl: '.swiper-button-prev',
-    //     },
-    //     autoplay: {
-    //         delay: 1500,
-    //     },
-    //     loop: true
-    // })
 
 
 
@@ -94,11 +70,10 @@ const Slide = (props) => {
         <Swiper
             spaceBetween={50}
             autoplay={true}
-            navigation
+            // navigation
             pagination={{ clickable: true }}
             scrollbar={{ draggable: true }}
-            onSwiper={(swiper) => console.log(swiper)}
-            onSlideChange={() => console.log('slide change')}
+            loop={true}
         >
 
             {data.map((item, index) => {
@@ -113,7 +88,7 @@ const Slide = (props) => {
 
 
                             <div className="center" >
-                                <h1>{pathname === '/react-movie-database/' ? item.title : item.name}</h1>
+                                <h2>{pathname === '/react-movie-database/' ? item.title : item.name}</h2>
                                 <p>{item.overview}</p>
                             </div>
                         </Link>
