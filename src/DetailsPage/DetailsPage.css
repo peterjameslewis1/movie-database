@@ -1,6 +1,5 @@
 .single-movie {
   background: #0d0f0a;
-  margin-top: 80px;
 }
 .single-movie .container {
   max-width: 95%;
@@ -30,9 +29,20 @@
   flex: auto;
   text-align: left;
 }
+.single-movie_info li:hover {
+  cursor: pointer;
+  color: #c3c3c3;
+}
+.single-movie_info li a {
+  color: darkgrey;
+  margin-left: 0px;
+}
+.single-movie_info li a:hover {
+  cursor: pointer;
+  color: #c3c3c3;
+}
 .single-movie_info .popularity i {
   color: #df0f62;
-  margin-right: 3px;
 }
 .single-movie_img {
   height: 50vh;
@@ -47,7 +57,7 @@
   font-size: 24px;
   font-weight: 200;
   margin: 10px 0 0 0;
-  text-transform: uppercase;
+  text-transform: capitalize;
 }
 .single-movie_text p {
   font-weight: 100;
@@ -58,8 +68,41 @@
 .single-movie_text .recent {
   padding: 0;
 }
+.single-movie_text-links {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px 0;
+  flex-wrap: wrap;
+}
+.single-movie_text-links .watch-now {
+  background: #222222;
+}
+.single-movie_text-links .watch-now:hover {
+  background: #2f2f2f;
+}
+.single-movie_text-links a {
+  color: white;
+  text-decoration: none;
+  border: 1px solid #222222;
+  font-size: 17px;
+  width: 100%;
+  flex-basis: calc(50% - 5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px 0;
+  height: 50px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  transition: all 0.5s;
+}
+.single-movie_text-links a:hover {
+  background: #222222;
+}
 .single-movie .rating {
   text-align: center;
+  padding: 0;
+  margin: 5px 0;
 }
 .single-movie .rating .stars {
   width: 90%;
@@ -72,14 +115,15 @@
 }
 .single-movie .rating-btn {
   background: #df0f62;
-  padding: 15px;
   border-radius: 7px;
-  margin: 40px 0 0 0;
   color: #ffffff;
+  width: 100%;
+  height: 100%;
   display: flex;
-  font-size: 20px;
-  justify-content: space-between;
+  font-size: 17px;
+  justify-content: space-evenly;
   align-items: center;
+  margin: 0;
 }
 .single-movie .rating-btn:focus {
   outline: none;
@@ -122,6 +166,20 @@
   height: 30vh;
   bottom: 0;
   border-top: 1px solid grey;
+}
+.seasons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+.seasons h4 {
+  flex: 1 0 38%;
+  text-align: center;
+  border: 1px solid #222222;
+  padding: 15px;
+  border-radius: 7px;
+  margin: 5px;
 }
 @keyframes btn-press {
   0% {

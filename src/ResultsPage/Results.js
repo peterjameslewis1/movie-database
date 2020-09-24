@@ -10,7 +10,6 @@ const Results = props => {
     const tvUrl = `https://api.themoviedb.org/3/search/tv?api_key=${key}&language=en-US&page=1&query=${props.title}&include_adult=false`;
     const movieUrl = `https://api.themoviedb.org/3/search/movie?api_key=${key}&language=en-US&query=${props.title}&page=1&include_adult=false`;
     const pathname = window.location.pathname;
-    console.log(props)
 
 
     useEffect(() => {

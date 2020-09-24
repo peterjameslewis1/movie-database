@@ -8,6 +8,7 @@ const MovieRating = props => {
     const [starsSelected, setStarsSelected] = useState(0);
     const [token, setToken] = useState('');
     const [ratingText, setRatingText] = useState(false)
+    const pathname = window.location.pathname;
 
 
     const clickHandler = () => {
@@ -69,8 +70,8 @@ const MovieRating = props => {
     }
 
     return (
-        <div className="rating">
-            <h3 className={click === true ? "rating-btn rating-btn_active" : 'rating-btn'} onClick={clickHandler}>Rate this Movie <i className={click ? "fas fa-star" : "fas fa-star active"}></i></h3>
+        <a className="rating">
+            <h3 className={click === true ? "rating-btn rating-btn_active" : 'rating-btn'} onClick={clickHandler}>{pathname === `/react-movie-database/tv/${id}` ? 'Rate show' : 'Rate Movie'}<i className={click ? "fas fa-star" : "fas fa-star active"}></i></h3>
 
             <div className={click ? 'rating-container rating-active' : 'rating-container'}>
                 {button}
@@ -88,7 +89,7 @@ const MovieRating = props => {
 
                 <button className={ratingText ? 'btn btn-active' : 'btn'} onClick={submitHandler} type="submit">{ratingText ? 'Thanks!' : 'Submit'}</button>
             </div>
-        </div>
+        </a>
     )
 }
 

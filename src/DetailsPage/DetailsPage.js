@@ -1,21 +1,22 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import MovieStats from '../MovieStats';
 import Dropdown from '../Dropdown/Dropdown';
 import Header from '../Header/Header';
-import MovieRating from './MovieRating';
+import MovieRating from '../MovieRating';
 
 const SingleMovie = props => {
     const key = '8672037f7713f0f454d73f60ab645f36';
     const id = props.match.params.id;
     const [clicked, setClicked] = useState(false)
     const [data, setData] = useState({
-        genres: []
+        genres: [],
+        seasons: []
     });
-    const tvUrl = `https://api.themoviedb.org/3/tv/${id}?api_key=${key}&language=en-US`;
+    const tvUrl = `https://api.themoviedb.org/3/tv/${id}?api_key=${key}&language=en-US&`;
     const movieUrl = `https://api.themoviedb.org/3/movie/${id}?api_key=${key}&language=en-US`;
     const pathname = window.location.pathname;
 
-    console.log(id)
     useEffect(() => {
         window.scrollTo(0, 0)
         let mounted = true;
@@ -27,12 +28,14 @@ const SingleMovie = props => {
             };
             fetchData();
         }
-
-
         return () => {
             mounted = false;
         }
     }, [pathname]);
+
+
+
+
 
 
 
@@ -50,17 +53,16 @@ const SingleMovie = props => {
         setClicked(!clicked)
     }
     //
-    console.log(props)
-
+    console.log(data)
+    // Mapping over movie genres
+    const movieGenres = (
+        data.genres.map(item => {
+            return <Link to={{ pathname: `genres/${item.name}` }} key={item.id}>{item.name}, </Link>
+        })
+    )
+    //
 
     if (pathname === `/react-movie-database/${id}`) {
-        // Mapping over movie genres
-        const movieGenres = (
-            data.genres.map(item => {
-                return <span key={item.id}>{item.name}, </span>
-            })
-        )
-        //
         return (
             <>
                 <Header />
@@ -68,7 +70,7 @@ const SingleMovie = props => {
                     <h2>{data.title}</h2>
                     <ul className="single-movie_info container">
                         <li className="popularity"><i onClick={clickHandler} className={clicked ? 'pulse-active fas fa-star' : 'fas fa-star'}></i>{parseInt(data.popularity)}</li>
-                        {/* <li>{movieGenres}</li> */}
+                        <li>{movieGenres}</li>
                         {pathname === `/react-movie-database/${id}` ? movieRuntime : tvRuntime}
                         <li>{data.release_date}</li>
                     </ul>
@@ -79,9 +81,17 @@ const SingleMovie = props => {
                     <div className="single-movie_text container">
                         <MovieStats stat={data.vote_average} />
                         <h3>{data.tagline}</h3>
-                        <span></span>
                         <p>{data.overview}</p>
-                        <MovieRating id={id} totalStars={10} />
+
+                        <div className="single-movie_text-links">
+                            <a className="watch-now" href={data.homepage} target="_blank">Watch Now</a>
+                            <MovieRating id={id} totalStars={10} />
+                        </div>
+                        {/* <div className="seasons">
+                            {data.seasons.map((season, index) => {
+                                return <h4 value={season.season_number}>{season.season_number}</h4>
+                            })}
+                        </div> */}
                         <Dropdown title="Similar" id={id} />
                     </div>
                 </div >
@@ -96,7 +106,7 @@ const SingleMovie = props => {
                     <h2>{data.name}</h2>
                     <ul className="single-movie_info container">
                         <li className="popularity"><i onClick={clickHandler} className={clicked ? 'pulse-active fas fa-star' : 'fas fa-star'}></i>{parseInt(data.popularity)}</li>
-                        {/* <li>{movieGenres}</li> */}
+                        <li>{movieGenres}</li>
                         {pathname === `/react-movie-database/${id}` ? movieRuntime : tvRuntime}
                         <li>{data.first_air_date}</li>
                     </ul>
@@ -107,13 +117,16 @@ const SingleMovie = props => {
                     <div className="single-movie_text container">
                         <MovieStats stat={data.vote_average} />
                         <div className="single-movie_text-links">
-                            <a href={data.homepage}>Watch here</a>
-                            <a href=""></a>
+                            <a className="watch-now" href={data.homepage} target="_blank">Watch Now</a>
+                            <MovieRating id={id} totalStars={10} />
                         </div>
-                        <h4>{data.status}</h4>
-                        <span></span>
                         <p>{data.overview}</p>
-                        <MovieRating id={id} totalStars={10} />
+                        <div className="single-movie_text-links">
+                            {data.seasons.map((season, index) => {
+                                console.log(season)
+                                return <Link to={{ pathname: `season/${season.season_number}`, state: id }} value={season.season_number}>Season {season.season_number}</Link>
+                            })}
+                        </div>
                         <Dropdown title="Similar" id={id} />
                     </div>
                 </div >
