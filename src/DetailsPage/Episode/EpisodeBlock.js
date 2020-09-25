@@ -3,12 +3,7 @@ import Header from '../../Header/Header';
 
 const Episode = props => {
     const data = props.data;
-    console.log(data)
 
-
-    // data.episodes.map(item => {
-    //     console.log(item)
-    // })
 
     return (
         <>
@@ -26,10 +21,8 @@ const Episode = props => {
                                 ></div>
                                 <div className="season-block-container_episode-text">
                                     <h3>{episode.name}</h3>
-
                                     <p>{episode.overview}</p>
                                     <p>Air Date: {episode.air_date}</p>
-
                                 </div>
                             </div>
                         </div>

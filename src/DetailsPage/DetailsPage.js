@@ -124,7 +124,7 @@ const SingleMovie = props => {
                         <div className="single-movie_text-links">
                             {data.seasons.map((season, index) => {
                                 console.log(season)
-                                return <Link to={{ pathname: `season/${season.season_number}`, state: id }} value={season.season_number}>Season {season.season_number}</Link>
+                                return <Link to={{ pathname: `season/${season.season_number}`, state: id }} value={season.season_number}>Season {season.season_number === 0 ? 'Specials' : season.season_number}</Link>
                             })}
                         </div>
                         <Dropdown title="Similar" id={id} />
