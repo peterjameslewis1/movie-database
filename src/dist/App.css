@@ -169,13 +169,15 @@ body .App {
   color: darkgrey;
   font-size: 16px;
 }
+.recent-container_items--item .text .favorite {
+  margin-right: 10px;
+}
 .recent .hidden {
   height: 0 !important;
   overflow: hidden;
 }
 .results {
   position: relative;
-  top: 70px;
 }
 .results-container {
   flex-wrap: wrap;

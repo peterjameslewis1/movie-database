@@ -41,7 +41,7 @@ const Nav = (props) => {
             </li>
             <ul className={genre ? 'genres-menu open' : 'genres-menu'}>
                 {data.map((genre, index) => {
-                    return <Link to={{ pathname: `genres/${genre.name}` }} key={genre.id}>{genre.name}</Link>
+                    return <Link to={{ pathname: pathname.includes('/tv/') ? `/react-movie-database/tv/genres/${genre.name}` : `/react-movie-database/genres/${genre.name}` }} key={genre.id}>{genre.name}</Link>
                 })}
             </ul>
             <li className="nav-link">About</li>

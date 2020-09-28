@@ -31,7 +31,7 @@ const SingleMovie = props => {
         return () => {
             mounted = false;
         }
-    }, [pathname]);
+    }, [pathname, id]);
 
 
 
@@ -53,11 +53,10 @@ const SingleMovie = props => {
         setClicked(!clicked)
     }
     //
-    console.log(data)
     // Mapping over movie genres
     const movieGenres = (
         data.genres.map(item => {
-            return <Link to={{ pathname: `genres/${item.name}` }} key={item.id}>{item.name}, </Link>
+            return <Link to={{ pathname: `${item.name}` }} key={item.id}>{item.name}, </Link>
         })
     )
     //
@@ -123,7 +122,6 @@ const SingleMovie = props => {
                         <p>{data.overview}</p>
                         <div className="single-movie_text-links">
                             {data.seasons.map((season, index) => {
-                                console.log(season)
                                 return <Link to={{ pathname: `season/${season.season_number}`, state: id }} value={season.season_number}>Season {season.season_number === 0 ? 'Specials' : season.season_number}</Link>
                             })}
                         </div>
