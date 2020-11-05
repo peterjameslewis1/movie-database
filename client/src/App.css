@@ -1,10 +1,10 @@
-@import 'Header/Header.css';
-@import 'Slider/slide.css';
-@import 'PopularMovies/Popular.css';
-@import 'Slider2/Slider2.css';
-@import 'Footer/Footer.css';
-@import 'DetailsPage/DetailsPage.css';
-@import 'DetailsPage/Episode/EpisodeBlock.css';
+@import "Header/Header.css";
+@import "Slider/slide.css";
+@import "PopularMovies/Popular.css";
+@import "Slider2/Slider2.css";
+@import "Footer/Footer.css";
+@import "DetailsPage/DetailsPage.css";
+@import "DetailsPage/Episode/EpisodeBlock.css";
 h2 {
   text-transform: uppercase;
   font-weight: 200;

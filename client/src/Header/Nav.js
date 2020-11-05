@@ -31,6 +31,7 @@ const Nav = (props) => {
 
     return (
         <ul className="nav">
+            <li className="nav-link"><a href="/react-movie-database/">Login</a><i onClick={props.closeMenu} className="fas fa-times"></i></li>
             <li className="nav-link"><a href="/react-movie-database/">Home</a><i onClick={props.closeMenu} className="fas fa-times"></i></li>
             <li onClick={() => {
                 genreHandler();

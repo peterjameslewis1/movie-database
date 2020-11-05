@@ -14,6 +14,7 @@ import DetailsPage from './DetailsPage/DetailsPage';
 import Results from './ResultsPage/Results';
 import Seasons from './DetailsPage/SingleSeason/Season';
 import Episode from './DetailsPage/Episode/EpisodeBlock';
+import Login from './Login';
 import './App.css';
 
 
@@ -31,6 +32,7 @@ function App(props) {
 
           <Route exact path="/react-movie-database/">
             <Header />
+            <Login />
             <Slide />
             <PopularMovies title="Popular Movies" />
             <Slider2 title="New Releases" />
