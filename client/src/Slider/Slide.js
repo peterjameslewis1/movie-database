@@ -27,7 +27,7 @@ const Slide = (props) => {
         let mounted = true;
         if (mounted) {
             async function getSliderMovies() {
-                const response = await fetch(pathname === '/react-movie-database/' ? movie : tv);
+                const response = await fetch(pathname === '/' ? movie : tv);
                 const movies = await response.json()
                 setData(movies.results)
             }
@@ -58,14 +58,12 @@ const Slide = (props) => {
 
                     <SwiperSlide key={item.id} style={{ background: `url('https://image.tmdb.org/t/p/original${item.poster_path}?api_key=8672037f7713f0f454d73f60ab645f36')` }}
                     >
-                        <Link to={{
-                            pathname: `${item.id}`
-                        }} key={index}
+                        <Link to={{ pathname: pathname.includes('/tv/') ? `/tv/${item.id}` : `/${item.id}` }} key={index}
                         >
 
 
                             <div className="center" >
-                                <h2>{pathname === '/react-movie-database/' ? item.title : item.name}</h2>
+                                <h2>{pathname === '/' ? item.title : item.name}</h2>
                                 <p>{item.overview}</p>
                             </div>
                         </Link>

@@ -14,7 +14,7 @@ const Popular = props => {
         let mounted = true;
         if (mounted) {
             const getPopularMovies = async () => {
-                const response = await fetch(pathname === '/react-movie-database/' ? movie : tv);
+                const response = await fetch(pathname === '/' ? movie : tv);
                 const movies = await response.json()
                 setData(movies.results)
             };

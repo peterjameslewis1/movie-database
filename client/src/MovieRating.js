@@ -19,7 +19,6 @@ const MovieRating = props => {
         const fetchToken = async () => {
             const response = await fetch(`https://api.themoviedb.org/3/authentication/guest_session/new?api_key=${key}`);
             const token = await response.json()
-            console.log(token)
             setToken(token.guest_session_id)
         };
         fetchToken();
@@ -29,18 +28,6 @@ const MovieRating = props => {
 
 
     const submitHandler = async () => {
-        // const data = {
-        //     "value": starsSelected
-        // }
-        // const response = await fetch(`https://api.themoviedb.org/3/movie/${id}/rating?api_key=${key}&guest_session_id=${token}`, {
-        //     method: "POST",
-        //     headers: {
-        //         "content-type": "application/json;charset=utf-8"
-        //     },
-        //     body: JSON.stringify(data)
-        // });
-        // const rating = await response.json()
-        // console.log(rating)
 
         setTimeout(() => {
             setRatingText(!ratingText)
@@ -71,7 +58,7 @@ const MovieRating = props => {
 
     return (
         <a className="rating">
-            <h3 className={click === true ? "rating-btn rating-btn_active" : 'rating-btn'} onClick={clickHandler}>{pathname === `/react-movie-database/tv/${id}` ? 'Rate show' : 'Rate Movie'}<i className={click ? "fas fa-star" : "fas fa-star active"}></i></h3>
+            <h3 className={click === true ? "rating-btn rating-btn_active" : 'rating-btn'} onClick={clickHandler}>{pathname === `/tv/${id}` ? 'Rate show' : 'Rate Movie'}<i className={click ? "fas fa-star" : "fas fa-star active"}></i></h3>
 
             <div className={click ? 'rating-container rating-active' : 'rating-container'}>
                 {button}

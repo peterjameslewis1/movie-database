@@ -13,9 +13,7 @@ const SearchResults = props => {
             <ul>
                 {data.map((item, index) => {
                     return (
-                        <Link to={{
-                            pathname: `${item.id}`
-                        }}
+                        <Link to={{ pathname: pathname.includes('/tv/') ? `/tv/${item.id}` : `/${item.id}` }}
                             className="list-item"
                             key={index}
                         >

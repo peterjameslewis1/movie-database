@@ -16,18 +16,14 @@ const SignOut = ({ userData }) => {
                 'Content-Type': 'application/json'
             }
         }).then(res => {
-            if (res.status === 200) {
-                console.log('completed')
-                console.log(res)
-                return res;
-            }
+            return res;
         }).catch(err => {
             console.log(err)
         })
     }
 
 
-    return <li className="nav-link"><Link onClick={signOutUser} >Log out</Link></li>
+    return <li className="nav-link"><Link to="/" onClick={signOutUser}>Log out</Link></li>
 
 }
 

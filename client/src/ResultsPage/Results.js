@@ -32,7 +32,7 @@ const Results = props => {
             <div className="results-container">
                 {data.map(item => {
                     return (
-                        <Link to={{ pathname: pathname.includes('/tv/') ? `/react-movie-database/tv/${item.id}` : `/react-movie-database/${item.id}` }} className="results-container_item"
+                        <Link to={{ pathname: pathname.includes('/tv/') ? `/tv/${item.id}` : `/${item.id}` }} className="results-container_item"
                             key={item.id}
                             style={{ background: `url('https://image.tmdb.org/t/p/original${item.poster_path}?api_key=8672037f7713f0f454d73f60ab645f36')` }}
                         >

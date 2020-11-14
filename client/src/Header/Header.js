@@ -12,6 +12,7 @@ const Header = ({ authenticated, userData }) => {
     const [data, setData] = useState([])
     const wrapperRef = useRef(null);
     const [watching, setWatching] = useState(false)
+    const pathname = window.location.pathname;
 
     // State to open and close menu's
     const menuClickHandler = () => {
@@ -40,6 +41,7 @@ const Header = ({ authenticated, userData }) => {
         const response = await fetch(`https://api.themoviedb.org/3/search/multi?api_key=${key}&language=en-US&query=${query}&page=1&include_adult=false`);
         const movies = await response.json()
         setData(movies.results)
+        console.log(data)
         return;
     };
     // Setting query with setTimeout then fetching data to minimise http requests
@@ -52,17 +54,16 @@ const Header = ({ authenticated, userData }) => {
 
     return (
         <div className="header">
-            <div className={
-                window.location.pathname === '/react-movie-database/' || window.location.pathname === 'react-movie-database/tv'
-                    ? 'hide'
-                    : 'show'
-            }
+            <div style={{
+                display: pathname === '/' || pathname === '/tv/'
+                    ? 'none'
+                    : 'block'
+            }}
                 onClick={(e) => goBack()}>
-                <i className="fas fa-arrow-left"></i>
+                <i className="fas fa-arrow-left" style={{ marginRight: '10px' }}></i>
             </div>
             <div className="logo">
-                <span></span>
-                <Link to="/react-movie-database/">{authenticated ? `Welcome ${userData.data.firstName}` : 'ProShowz'}</Link>
+                <Link to="/">{authenticated ? `Welcome ${userData.data.firstName}` : 'ProShowz'}</Link>
             </div>
 
             <div className="mobile-nav">
@@ -78,11 +79,11 @@ const Header = ({ authenticated, userData }) => {
                 <SearchResults data={data} state={menu} />
             </div>
             <div className="app-routes">
-                <Link to="/react-movie-database/" className={watching ? "app-routes_movies app-routes_active" : "app-routes_movies"} onClick={watchClickHandler}>Movies</Link>
-                <Link to="/react-movie-database/tv/" className="app-routes_tv" onClick={watchClickHandler}>TV</Link>
+                <Link to="/" className={watching ? "app-routes_movies app-routes_active" : "app-routes_movies"} onClick={watchClickHandler}>Movies</Link>
+                <Link to="/tv/" className="app-routes_tv" onClick={watchClickHandler}>TV</Link>
             </div>
 
-        </div>
+        </div >
     )
 }
 

@@ -55,7 +55,7 @@ const Login = (props) => {
     const loginPromt = () => {
         if (status === 'success') {
             setTimeout(() => {
-                props.history.push('/react-movie-database/')
+                props.history.push('/')
             }, 500)
         } else if (error.status !== 200) {
             return <div>{error.data}</div>

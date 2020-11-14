@@ -31,14 +31,14 @@ function App() {
         <Header userData={userData} authenticated={authenticated} />
         <Switch>
 
-          <Route exact path="/react-movie-database/">
+          <Route exact path="/">
             <Slide />
             <PopularMovies title="Popular Movies" />
             <Slider2 title="New Releases" />
             <Dropdown title="Recent Movies" />
           </Route>
 
-          <Route exact path="/react-movie-database/tv/">
+          <Route exact path="/tv/">
             <Slide />
             <PopularMovies title="Popular Shows" />
             <Slider2 title="Top Rated" />
@@ -52,14 +52,14 @@ function App() {
             </div>
           </Route>
 
-          <Route exact path="/react-movie-database/:id" component={DetailsPage} />
-          <Route exact path="/react-movie-database/tv/:id" component={DetailsPage} />
+          <Route exact path="/:id" component={DetailsPage} />
+          <Route exact path="/tv/:id" component={DetailsPage} />
 
-          <Route exact path="/react-movie-database/genres/:genre" render={(props) => (<Results title={props.match.params.genre} />)} />
-          <Route path="/react-movie-database/tv/genres/:genre" render={(props) => (<Results title={props.match.params.genre} />)} />
+          <Route exact path="/genres/:genre" render={(props) => (<Results title={props.match.params.genre} />)} />
+          <Route path="/tv/genres/:genre" render={(props) => (<Results title={props.match.params.genre} />)} />
 
-          <Route path="/react-movie-database/tv/season/:episode" component={Seasons} />
-          <Route path="/react-movie-database/tv/season/episeode/:id" component={Episode} />
+          <Route path="/tv/season/:episode" component={Seasons} />
+          <Route path="/tv/season/episode/:id" component={Episode} />
         </Switch>
         <Footer userData={userData} />
       </div>

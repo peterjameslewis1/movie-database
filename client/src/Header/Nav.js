@@ -26,7 +26,7 @@ const Nav = ({ userData, closeMenu }) => {
 
     return (
         <ul className="nav">
-            <li className="nav-link"><Link to="/react-movie-database/">Home</Link><i onClick={closeMenu} className="fas fa-times"></i></li>
+            <li className="nav-link"><Link to="/">Home</Link><i onClick={closeMenu} className="fas fa-times"></i></li>
             {userData.status === 200
                 ? <SignOut userData={userData} />
                 :
@@ -37,12 +37,12 @@ const Nav = ({ userData, closeMenu }) => {
                 e.preventDefault();
                 genreHandler();
             }} className="genre-dropdown nav-link">
-                {pathname === '/react-movie-database/' ? 'Movie genres' : 'TV genres'}
+                {pathname === '/' ? 'Movie genres' : 'TV genres'}
                 <i className={genre ? 'fas fa-caret-up rotate' : 'fas fa-caret-up'}></i>
             </li>
             <ul className={genre ? 'genres-menu open' : 'genres-menu'}>
                 {data.map(genres => {
-                    return <Link to={{ pathname: pathname.includes('/tv/') ? `/react-movie-database/tv/genres/${genres.name}` : `/react-movie-database/genres/${genres.name}` }} key={genres.id}>{genres.name}</Link>
+                    return <Link to={{ pathname: pathname.includes('/tv/') ? `/tv/genres/${genres.name}` : `/genres/${genres.name}` }} key={genres.id}>{genres.name}</Link>
                 })}
             </ul>
         </ul>

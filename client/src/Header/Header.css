@@ -128,7 +128,7 @@
   text-decoration: none;
 }
 .header .app-routes_movies::before {
-  content: '';
+  content: "";
   width: 50%;
   height: 4px;
   position: absolute;
@@ -138,7 +138,7 @@
   transition: all 0.5s;
 }
 .header .app-routes_active::before {
-  content: '';
+  content: "";
   width: 50%;
   height: 4px;
   position: absolute;

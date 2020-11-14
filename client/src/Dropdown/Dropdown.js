@@ -24,13 +24,13 @@ const Dropdown = props => {
             const getdropDown = async () => {
                 let response;
                 let movies;
-                if (pathname === `/react-movie-database/`) {
+                if (pathname === `/`) {
                     response = await fetch(upcoming);
                 }
-                else if (pathname === `/react-movie-database/${props.id}`) {
+                else if (pathname === `/${props.id}`) {
                     response = await fetch(similarMovie);
                 }
-                else if (pathname === `/react-movie-database/tv/${props.id}`) {
+                else if (pathname === `/tv/${props.id}`) {
                     response = await fetch(similarTv);
                 }
                 else {

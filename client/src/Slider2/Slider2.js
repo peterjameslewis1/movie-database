@@ -24,7 +24,7 @@ const Slider2 = props => {
         let mounted = true;
         if (mounted) {
             async function getNewReleases() {
-                const response = await fetch(pathname === '/react-movie-database/' ? movie : tv);
+                const response = await fetch(pathname === '/' ? movie : tv);
                 const movies = await response.json()
                 setData(movies.results)
             }
@@ -59,7 +59,7 @@ const Slider2 = props => {
                             }}>
 
                                 <div className="center">
-                                    <h2>{pathname === '/react-movie-database/' ? item.title : item.name}</h2>
+                                    <h2>{pathname === '/' ? item.title : item.name}</h2>
                                     <p>{item.overview}</p>
                                 </div>
                             </Link>

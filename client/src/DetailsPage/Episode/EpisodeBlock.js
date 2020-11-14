@@ -4,11 +4,8 @@ import Header from '../../Header/Header';
 const Episode = props => {
     const data = props.data;
 
-
     return (
         <>
-            <Header />
-
             <div className="season-block">
                 <h2>{data.name}</h2>
                 {data.episodes.map(episode => {
