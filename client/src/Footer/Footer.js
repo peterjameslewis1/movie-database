@@ -4,7 +4,7 @@ import NewsLetter from '../Footer/NewsLetter';
 import Legal from './Legal';
 
 
-const Footer = (props) => {
+const Footer = ({ userData }) => {
     const [footerMenu, setFooterMenu] = useState(false)
 
 
@@ -15,7 +15,7 @@ const Footer = (props) => {
     return (
         <div className="footer">
             <h2>Information</h2>
-            <Nav footerMenu={footerClickHandler} state={footerMenu} />
+            <Nav userData={userData} footerMenu={footerClickHandler} state={footerMenu} />
             <NewsLetter />
             <Legal />
         </div>

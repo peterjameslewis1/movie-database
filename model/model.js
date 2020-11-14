@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
 
-const user = new mongoose.Schema({
+const User = new mongoose.Schema({
     firstName: {
         type: String,
         min: 1,
         max: 255
     },
-    LastName: {
+    lastName: {
         type: String,
         min: 1,
         max: 255
@@ -20,7 +20,15 @@ const user = new mongoose.Schema({
         type: String,
         min: 5,
         max: 255
+    },
+    token: {
+        type: String
+    },
+    date: {
+        type: Date,
+        default: Date.now
     }
+
 })
 
-module.exports = mongoose.model('User', user)
+module.exports = mongoose.model('User', User)

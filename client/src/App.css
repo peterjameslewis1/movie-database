@@ -39,6 +39,37 @@ body .App {
   font-family: Helvetica, Arial, sans-serif;
   padding-top: 90px;
 }
+body .App .auth form {
+  padding: 0 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+body .App .auth form div {
+  width: 100%;
+  text-align: left;
+  margin: 10px 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+body .App .auth form input {
+  flex: 48% 1;
+  padding: 10px;
+  margin: 1px 0;
+  border: none;
+}
+body .App .auth form input:focus {
+  outline: none;
+}
+body .App .auth form .submit {
+  flex: 0 1 50%;
+  outline: none;
+  margin-top: 20px;
+}
+body .App .auth form .submit:hover {
+  background-color: #cccccc;
+  cursor: pointer;
+}
 .hide {
   display: none;
 }
@@ -262,7 +293,7 @@ body .App {
   color: #df0f61;
 }
 .mobile {
-  width: 80% !important;
+  width: 87% !important;
   padding: 20px;
 }
 .mobile-menu {
@@ -304,7 +335,7 @@ body .App {
 .mobile-menu ul li a {
   text-decoration: none;
   color: white;
-  font-size: 18px;
+  font-size: 24px;
 }
 .genres-menu {
   transition: all 0.7s;

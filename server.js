@@ -1,20 +1,34 @@
 const express = require('express');
-const path = require('path');
 const app = express();
-const User = './model/model.js'
+const User = require('./model/model')
+const path = require('path');
+const cors = require('cors');
+const port = process.env.PORT || 5000;
+const dotenv = require('dotenv');
+const mongoose = require('mongoose');
 
 
+// Auth Routes
+const authRoute = require('./routes/auth');
+
+
+
+dotenv.config();
+
+//Connect to DB
+mongoose.connect(process.env.DB_CONNECT,
+    { useNewUrlParser: true, useUnifiedTopology: true },
+    () => console.log('connected to DB!')
+);
+
+
+// Middleware
 app.use(express.json());
-
+app.use(cors());
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, 'client/build')));
 
-app.get('/react-movie-database/login', (req, res) => {
-    res.setHeader('content-type', 'application/json');
-    console.log('Server Working')
-    res.json(req.body)
-    console.log(req.body)
-})
+app.use('/api', authRoute)
 
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname + '/client/build/index.html'));
@@ -23,7 +37,6 @@ app.get('*', (req, res) => {
 
 
 
-const port = process.env.PORT || 5000;
-app.listen(port);
-
-console.log(`Listening on port ${port}`);
+app.listen(port, () => {
+    console.log(`Listening on port ${port}`);
+});

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import Header from '../Header/Header';
 
 
 const Results = props => {
@@ -29,7 +28,6 @@ const Results = props => {
 
     return (
         <div className="results">
-            <Header />
             <h2>{props.title}</h2>
             <div className="results-container">
                 {data.map(item => {

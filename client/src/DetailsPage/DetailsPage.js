@@ -5,7 +5,7 @@ import Dropdown from '../Dropdown/Dropdown';
 import Header from '../Header/Header';
 import MovieRating from '../MovieRating';
 
-const SingleMovie = props => {
+const SingleMovie = (props) => {
     const key = '8672037f7713f0f454d73f60ab645f36';
     const id = props.match.params.id;
     const [clicked, setClicked] = useState(false)
@@ -64,7 +64,7 @@ const SingleMovie = props => {
     if (pathname === `/react-movie-database/${id}`) {
         return (
             <>
-                <Header />
+
                 <div className="single-movie" >
                     <h2>{data.title}</h2>
                     <ul className="single-movie_info container">

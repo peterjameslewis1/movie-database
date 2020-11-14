@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -14,39 +14,42 @@ import DetailsPage from './DetailsPage/DetailsPage';
 import Results from './ResultsPage/Results';
 import Seasons from './DetailsPage/SingleSeason/Season';
 import Episode from './DetailsPage/Episode/EpisodeBlock';
-import Login from './Login';
+import Register from './auth/Register';
+import Login from './auth/Login';
 import './App.css';
 
 
-function App(props) {
-
-
-
-  const pathname = window.location.pathname;
-
+function App() {
+  const [authenticated, setAuthenticated] = useState(false)
+  const [userData, setUserData] = useState({
+    status: 0
+  })
 
   return (
     <Router>
       <div className="App">
+        <Header userData={userData} authenticated={authenticated} />
         <Switch>
 
           <Route exact path="/react-movie-database/">
-            <Header />
-            <Login />
             <Slide />
             <PopularMovies title="Popular Movies" />
             <Slider2 title="New Releases" />
             <Dropdown title="Recent Movies" />
-
           </Route>
 
           <Route exact path="/react-movie-database/tv/">
-            <Header />
             <Slide />
             <PopularMovies title="Popular Shows" />
             <Slider2 title="Top Rated" />
             <Dropdown title="More" />
+          </Route>
 
+          <Route exact path="/api/account">
+            <div className="auth">
+              <Login setAuthenticated={setAuthenticated} setUserData={setUserData} userData={userData} />
+              <Register />
+            </div>
           </Route>
 
           <Route exact path="/react-movie-database/:id" component={DetailsPage} />
@@ -58,7 +61,7 @@ function App(props) {
           <Route path="/react-movie-database/tv/season/:episode" component={Seasons} />
           <Route path="/react-movie-database/tv/season/episeode/:id" component={Episode} />
         </Switch>
-        <Footer />
+        <Footer userData={userData} />
       </div>
     </Router>
   );
