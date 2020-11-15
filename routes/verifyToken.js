@@ -12,3 +12,5 @@ const jwt = () => {
         return response.status(400).send('Invalid Token')
     }
 }
+
+module.exports = jwt;
