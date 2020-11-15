@@ -3,16 +3,12 @@ const app = express();
 const path = require('path');
 const cors = require('cors');
 const port = process.env.PORT || 5000;
-const dotenv = require('dotenv');
+const dotenv = require('dotenv').config();
 const mongoose = require('mongoose');
 
 
 // Auth Routes
 const authRoute = require('./routes/auth');
-
-
-
-dotenv.config();
 
 //Connect to DB
 mongoose.connect(process.env.DB_CONNECT,
@@ -21,7 +17,7 @@ mongoose.connect(process.env.DB_CONNECT,
 );
 
 // Serve static files from the React app
-app.use(express.static(path.join(__dirname, 'client/build/index.html')));
+app.use(express.static(path.join(__dirname, 'client/build/')));
 
 // Middleware
 app.use(express.json());
@@ -34,8 +30,6 @@ app.use('/api', authRoute)
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname + '/client/build/index.html'));
 });
-
-
 
 
 app.listen(port, () => {
