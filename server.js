@@ -20,14 +20,16 @@ mongoose.connect(process.env.DB_CONNECT,
     () => console.log('connected to DB!')
 );
 
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, 'client/build/index.html')));
 
 // Middleware
 app.use(express.json());
 app.use(cors());
-// Serve static files from the React app
-app.use(express.static(path.join(__dirname, 'client/build')));
 
+// Put all API endpoints under '/api'
 app.use('/api', authRoute)
+
 
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname + '/client/build/index.html'));

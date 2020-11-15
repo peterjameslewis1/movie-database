@@ -4,7 +4,7 @@
   "description": "Small application created with React.js, react router and the movie database to showcase all latest, upcoming and most popular movies.",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "node server.js",
     "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "author": "",
