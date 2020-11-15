@@ -67,8 +67,8 @@ const Header = ({ authenticated, userData }) => {
             </div>
 
             <div className="mobile-nav">
-                <div className="burger-menu" onClick={menuClickHandler}><i className="fas fa-bars"></i></div>
                 <i className="fas fa-search" onClick={searchClickHandler}></i>
+                <div className="burger-menu" onClick={menuClickHandler}><i className={authenticated ? 'fas fa-user-circle' : 'fas fa-bars'}></i></div>
             </div>
 
             <div ref={wrapperRef} className={menu ? 'mobile-menu mobile' : 'mobile-menu'}><Nav userData={userData} closeMenu={menuClickHandler} /></div>
@@ -76,7 +76,7 @@ const Header = ({ authenticated, userData }) => {
             <div className={search ? 'show-search search' : 'show-search'} >
                 <input ref={wrapperRef} type="search" value={query} onChange={(e) => onChange(e)} placeholder="Search..." />
                 <i onClick={fetchData} className="fas fa-arrow-circle-right"></i>
-                <SearchResults data={data} state={menu} />
+                <SearchResults data={data} closeMenu={searchClickHandler} />
             </div>
             <div className="app-routes">
                 <Link to="/" className={watching ? "app-routes_movies app-routes_active" : "app-routes_movies"} onClick={watchClickHandler}>Movies</Link>
