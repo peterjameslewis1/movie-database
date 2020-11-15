@@ -25,10 +25,16 @@ function App() {
     status: 0
   })
 
+  const logoutHandler = () => {
+    setAuthenticated(!authenticated)
+    setUserData({ status: 0 })
+  }
+  console.log(authenticated)
+
   return (
     <Router>
       <div className="App">
-        <Header userData={userData} authenticated={authenticated} />
+        <Header userData={userData} authenticated={authenticated} logoutHandler={logoutHandler} />
         <Switch>
 
           <Route exact path="/">

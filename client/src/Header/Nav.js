@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import SignOut from '../auth/SignOut'
 
 
-const Nav = ({ userData, closeMenu }) => {
+const Nav = ({ userData, closeMenu, logoutHandler }) => {
     const key = '8672037f7713f0f454d73f60ab645f36';
     const [genre, setGenre] = useState(false);
     const [data, setData] = useState([]);
@@ -28,7 +28,7 @@ const Nav = ({ userData, closeMenu }) => {
         <ul className="nav">
             <li className="nav-link"><Link to="/" onClick={closeMenu}>Home</Link><i onClick={closeMenu} className="fas fa-times"></i></li>
             {userData.status === 200
-                ? <SignOut userData={userData} />
+                ? <SignOut userData={userData} logoutHandler={logoutHandler} closeMenu={closeMenu} />
                 :
                 <li className="nav-link"><Link to="/api/account" onClick={closeMenu}>Log in</Link></li>
             }

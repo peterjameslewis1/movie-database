@@ -3,12 +3,11 @@ import { Link } from 'react-router-dom';
 import axios from 'axios'
 
 
-const SignOut = ({ userData }) => {
+const SignOut = ({ userData, logoutHandler, closeMenu }) => {
     // Sign out user
     const signOutUser = async e => {
-        e.preventDefault();
 
-        const signOut = await axios({
+        await axios({
             method: 'POST',
             url: '/api/logout',
             data: JSON.stringify(userData.data),
@@ -23,7 +22,12 @@ const SignOut = ({ userData }) => {
     }
 
 
-    return <li className="nav-link"><Link to="/" onClick={signOutUser}>Log out</Link></li>
+    return <li className="nav-link"><Link to="/" onClick={(e) => {
+        signOutUser();
+        logoutHandler();
+        closeMenu();
+    }}>Log out</Link>
+    </li>
 
 }
 

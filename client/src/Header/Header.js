@@ -4,7 +4,7 @@ import Nav from './Nav';
 import SearchResults from './SearchResults';
 import debounce from 'lodash.debounce';
 
-const Header = ({ authenticated, userData }) => {
+const Header = ({ authenticated, userData, logoutHandler }) => {
     const key = '8672037f7713f0f454d73f60ab645f36';
     const [menu, setMenu] = useState(false)
     const [search, setSearch] = useState(false)
@@ -71,7 +71,7 @@ const Header = ({ authenticated, userData }) => {
                 <div className="burger-menu" onClick={menuClickHandler}><i className={authenticated ? 'fas fa-user-circle' : 'fas fa-bars'}></i></div>
             </div>
 
-            <div ref={wrapperRef} className={menu ? 'mobile-menu mobile' : 'mobile-menu'}><Nav userData={userData} closeMenu={menuClickHandler} /></div>
+            <div ref={wrapperRef} className={menu ? 'mobile-menu mobile' : 'mobile-menu'}><Nav userData={userData} closeMenu={menuClickHandler} logoutHandler={logoutHandler} /></div>
 
             <div className={search ? 'show-search search' : 'show-search'} >
                 <input ref={wrapperRef} type="search" value={query} onChange={(e) => onChange(e)} placeholder="Search..." />

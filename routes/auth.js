@@ -76,7 +76,7 @@ router.post('/logout', async (req, res) => {
     if (!user) return res.status(400).send('An error occured')
 
     // Removing JWT from DB
-    const removeToken = await User.updateOne({ token: '' })
+    const removeToken = await User.updateOne({ token: '' });
     return res.status(200)
 })
 
