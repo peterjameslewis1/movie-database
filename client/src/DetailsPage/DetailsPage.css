@@ -125,6 +125,14 @@
   align-items: center;
   margin: 0;
 }
+@media screen and (min-width: 400px) {
+  .single-movie .rating-btn {
+    justify-content: center;
+  }
+  .single-movie .rating-btn i {
+    margin-left: 10px;
+  }
+}
 .single-movie .rating-btn:focus {
   outline: none;
 }

@@ -38,6 +38,7 @@
       background: #222222;
       transition: 0.5s all;
       color: white;
+      border-radius: 0;
 
       &::placeholder {
         color: white;
@@ -75,6 +76,9 @@
 
   .logo {
     flex: 80%;
+    @media screen and (min-width: 1000px) {
+      flex: 90%;
+    }
 
     a {
       text-decoration: none;

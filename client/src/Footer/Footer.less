@@ -1,143 +1,141 @@
 .footer {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+
+  h2 {
+    padding: 0 15px;
+  }
+
+  .nav {
+    padding: 0;
+    margin: 0;
     display: flex;
     flex-direction: column;
-    text-align: left;
+    padding: 0 15px;
 
-    h2 {
-        padding: 0 15px;
+    li {
+      list-style: none;
+      margin: 10px 0;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+
+      @media screen and (min-width: 700px) {
+        justify-content: flex-start;
+        i {
+          margin-left: 20px;
+        }
+      }
+
+      &:first-child {
+        i {
+          display: none;
+        }
+      }
+
+      a {
+        text-decoration: none;
+        color: darkgrey;
+        display: inline;
+        position: relative;
+
+        &::before {
+          content: "";
+          width: 0%;
+          height: 1px;
+          background: white;
+          position: absolute;
+          left: 0;
+          bottom: -5px;
+          transition: all 0.5s;
+        }
+
+        &:hover {
+          &::before {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  /* NEWSLETTER LESS */
+
+  &-newsletter {
+    margin: 40px 0;
+    padding: 0 15px;
+
+    @media screen and (min-width: 700px) {
+      max-width: 50%;
     }
 
-    .nav {
-        padding: 0;
-        margin: 0;
-        display: flex;
-        flex-direction: column;
-        padding: 0 15px;
+    form {
+      border: 1px solid #2d2e2f;
+      border-radius: 5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
 
+      input {
+        background: transparent;
+        width: 100%;
+        flex: 1 1 80%;
+        border: none;
+        font-size: 18px;
+        padding: 15px;
+        border: 1px solid #2d2e2f;
+        border-radius: 5px;
+
+        &:focus {
+          background: white;
+          outline: none;
+        }
+      }
+    }
+
+    p {
+      color: darkgrey;
+    }
+  }
+
+  /* NEWSLETTER LESS END */
+
+  /* LEGAL */
+
+  &-legal {
+    background: #222;
+
+    &_social {
+      ul {
+        margin: 5px 0 0 0;
+        padding: 15px 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        list-style-type: none;
 
         li {
-            list-style: none;
-            margin: 10px 0;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
+          margin: 0;
+          transition: color 0.2s;
 
-            &:first-child {
-                i {
-                    display: none;
-                }
-            }
-
-            a {
-                text-decoration: none;
-                color: darkgrey;
-                display: inline;
-                position: relative;
-
-
-                &::before {
-                    content: '';
-                    width: 0%;
-                    height: 1px;
-                    background: white;
-                    position: absolute;
-                    left: 0;
-                    bottom: -5px;
-                    transition: all 0.5s;
-                }
-
-
-                &:hover {
-
-                    &::before {
-                        width: 100%;
-                    }
-                }
-            }
+          &:hover {
+            color: #df0f62;
+          }
         }
+      }
     }
 
+    &_text {
+      text-align: center;
+      padding: 15px 0;
 
-
-
-
-    /* NEWSLETTER LESS */
-
-    &-newsletter {
-        margin: 40px 0;
-        padding: 0 15px;
-
-        form {
-            border: 1px solid #2d2e2f;
-            border-radius: 5px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-            input {
-                background: transparent;
-                width: 100%;
-                flex: 1 1 80%;
-                border: none;
-                font-size: 18px;
-                padding: 15px;
-                border: 1px solid #2d2e2f;
-                border-radius: 5px;
-
-                &:focus {
-                    background: white;
-                    outline: none;
-                }
-            }
-        }
-
-        p {
-            color: darkgrey;
-        }
+      p {
+        margin: 0;
+        font-size: 15px;
+      }
     }
+  }
 
-    /* NEWSLETTER LESS END */
-
-
-    /* LEGAL */
-
-    &-legal {
-        background: #222;
-
-
-        &_social {
-
-
-            ul {
-                margin: 5px 0 0 0;
-                padding: 15px 0;
-                display: flex;
-                flex-direction: row;
-                justify-content: space-evenly;
-                list-style-type: none;
-
-
-                li {
-                    margin: 0;
-                    transition: color 0.2s;
-
-                    &:hover {
-                        color: #df0f62;
-                    }
-                }
-            }
-        }
-
-        &_text {
-            text-align: center;
-            padding: 15px 0;
-
-            p {
-                margin: 0;
-                font-size: 15px;
-            }
-        }
-    }
-
-    /* LEGAL END */
+  /* LEGAL END */
 }

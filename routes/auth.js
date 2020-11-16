@@ -44,6 +44,7 @@ router.post('/register', async (req, res) => {
 
 // LOGIN
 router.post('/login', async (req, res) => {
+    console.log(req.body)
     // Validation
     const { error } = await loginValidation(req.body)
     if (error) return res.status(400).send(error.details[0].message)
@@ -63,7 +64,7 @@ router.post('/login', async (req, res) => {
 
     // Fetching updated user data
     const updatedUser = await User.findOne({ email: req.body.email })
-    return res.header('auth-token', token).send(updatedUser)
+    return res.header('auth-token', token).status(200).json(updatedUser)
 
 })
 

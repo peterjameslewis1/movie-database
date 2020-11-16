@@ -32,6 +32,7 @@
   background: #222222;
   transition: 0.5s all;
   color: white;
+  border-radius: 0;
 }
 .header .show-search input::placeholder {
   color: white;
@@ -60,6 +61,11 @@
 }
 .header .logo {
   flex: 80%;
+}
+@media screen and (min-width: 1000px) {
+  .header .logo {
+    flex: 90%;
+  }
 }
 .header .logo a {
   text-decoration: none;

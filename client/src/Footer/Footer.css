@@ -24,6 +24,14 @@
   display: flex;
   justify-content: space-between;
 }
+@media screen and (min-width: 700px) {
+  .footer .nav li {
+    justify-content: flex-start;
+  }
+  .footer .nav li i {
+    margin-left: 20px;
+  }
+}
 .footer .nav li:first-child i {
   display: none;
 }
@@ -34,7 +42,7 @@
   position: relative;
 }
 .footer .nav li a::before {
-  content: '';
+  content: "";
   width: 0%;
   height: 1px;
   background: white;
@@ -49,6 +57,11 @@
 .footer-newsletter {
   margin: 40px 0;
   padding: 0 15px;
+}
+@media screen and (min-width: 700px) {
+  .footer-newsletter {
+    max-width: 50%;
+  }
 }
 .footer-newsletter form {
   border: 1px solid #2d2e2f;

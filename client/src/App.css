@@ -39,6 +39,9 @@ body .App {
   font-family: Helvetica, Arial, sans-serif;
   padding-top: 90px;
 }
+body .App .auth h2 {
+  margin-top: 0 !important;
+}
 body .App .auth form {
   padding: 0 20px;
   display: flex;
@@ -56,7 +59,13 @@ body .App .auth form input {
   flex: 48% 1;
   padding: 10px;
   margin: 1px 0;
+  border-bottom: 1px solid #df0f61 !important;
+  background-color: transparent;
+  color: white;
   border: none;
+}
+body .App .auth form input::placeholder {
+  color: white;
 }
 body .App .auth form input:focus {
   outline: none;
@@ -65,10 +74,12 @@ body .App .auth form .submit {
   flex: 0 1 50%;
   outline: none;
   margin-top: 20px;
+  background-color: #df0f61;
+  transition: all 0.2s;
 }
 body .App .auth form .submit:hover {
-  background-color: #cccccc;
   cursor: pointer;
+  transform: scale(0.95);
 }
 .hide {
   display: none;
@@ -164,33 +175,76 @@ body .App .auth form .submit:hover {
   height: 500px;
   overflow: scroll;
 }
+@media screen and (min-width: 700px) {
+  .recent-container {
+    height: 700px;
+  }
+}
 .recent-container_items {
   padding: 15px 15px 0 15px;
   border: 1px solid #2d2e2f;
+  display: flex;
+  flex-wrap: wrap;
+}
+@media screen and (min-width: 700px) {
+  .recent-container_items {
+    padding: 0;
+  }
+  .recent-container_items--item {
+    flex: 1 1 45%;
+    margin: 10px;
+  }
 }
 .recent-container_items--item {
   display: flex;
   background-color: #222222;
   border-radius: 7px;
-  height: 250px;
+  height: 400px;
   margin-bottom: 20px;
   color: white;
   text-decoration: none;
+  flex-direction: column;
+  flex: 1 1 100%;
+  margin: 5px;
+}
+@media screen and (min-width: 400px) {
+  .recent-container_items--item {
+    flex: 1 1 45%;
+  }
+}
+@media screen and (min-width: 700px) {
+  .recent-container_items--item {
+    height: 500px;
+    flex: 1 1 30%;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .recent-container_items--item {
+    height: 400px;
+    flex: 1 1 20%;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .recent-container_items--item {
+    height: 500px;
+  }
 }
 .recent-container_items--item .img {
   width: 100% !important;
   display: block !important;
-  flex: 60% !important;
+  flex: 1 1 100% !important;
   background-repeat: no-repeat !important;
-  background-size: contain !important;
-  border-radius: 7px;
+  background-size: cover !important;
+  border-radius: 7px 7px 0 0;
 }
 .recent-container_items--item .text {
-  flex: 50% 1;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
+  padding: 0 0 10px 10px;
+  height: 170px;
+  box-sizing: border-box;
 }
 .recent-container_items--item .text h4 {
   font-size: 22px;
@@ -253,6 +307,7 @@ body .App .auth form .submit:hover {
   bottom: 0px;
   left: 0;
   color: white;
+  width: 100%;
   text-align: left;
   z-index: 99999;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.7) 25%, rgba(0, 0, 0, 0.85) 40%, black 100%);
@@ -286,8 +341,14 @@ body .App .auth form .submit:hover {
   justify-content: space-between;
   flex: 15%;
 }
+@media screen and (min-width: 700px) {
+  .mobile-nav {
+    flex: 0%;
+  }
+}
 .mobile-nav i {
   font-size: 18px;
+  color: #df0f61;
 }
 .mobile-nav .fa-search {
   color: #df0f61;
@@ -336,6 +397,7 @@ body .App .auth form .submit:hover {
   text-decoration: none;
   color: white;
   font-size: 24px;
+  width: 100%;
 }
 .genres-menu {
   transition: all 0.7s;

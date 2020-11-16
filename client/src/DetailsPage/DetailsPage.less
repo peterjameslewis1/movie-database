@@ -1,246 +1,248 @@
 .single-movie {
-    background: #0d0f0a;
+  background: #0d0f0a;
 
-    .container {
-        max-width: 95%;
-        margin: 15px auto;
+  .container {
+    max-width: 95%;
+    margin: 15px auto;
+  }
+
+  h2 {
+    padding: 15px 15px 0 15px;
+    font-size: 38px;
+    text-align: left;
+    margin: 0;
+  }
+
+  ul {
+    margin: 0;
+  }
+
+  &_info {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 10px auto !important;
+
+    li {
+      color: darkgray;
+      font-size: 12px;
+      margin: 5px 5px 0 5px;
+      list-style: none;
+      flex: auto;
+      text-align: left;
+
+      &:hover {
+        cursor: pointer;
+        color: lighten(darkgrey, 10%);
+      }
+
+      a {
+        color: darkgrey;
+        margin-left: 0px;
+
+        &:hover {
+          cursor: pointer;
+          color: lighten(darkgrey, 10%);
+        }
+      }
     }
 
-    h2 {
-        padding: 15px 15px 0 15px;
-        font-size: 38px;
-        text-align: left;
-        margin: 0;
+    .popularity {
+      i {
+        color: #df0f62;
+      }
+    }
+  }
+
+  &_img {
+    height: 50vh;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+  }
+
+  &_text {
+    text-align: left;
+    display: inline-block;
+
+    h3 {
+      font-size: 24px;
+      font-weight: 200;
+      margin: 10px 0 0 0;
+      text-transform: capitalize;
     }
 
-    ul {
-        margin: 0;
+    p {
+      font-weight: 100;
+      font-size: 16px;
+      color: darkgray;
+      margin: 10px 0;
     }
 
-    &_info {
-        position: relative;
+    .recent {
+      padding: 0;
+    }
+
+    &-links {
+      display: flex;
+      justify-content: space-between;
+      margin: 15px 0;
+      flex-wrap: wrap;
+
+      .watch-now {
+        background: #222222;
+
+        &:hover {
+          background: lighten(#222222, 5%);
+        }
+      }
+
+      a {
+        color: white;
+        text-decoration: none;
+        border: 1px solid #222222;
+        font-size: 17px;
+        width: 100%;
+        flex-basis: calc(50% - 5px);
         display: flex;
-        flex-wrap: wrap;
-        padding: 0;
-        margin: 10px auto !important;
-
-        li {
-            color: darkgray;
-            font-size: 12px;
-            margin: 5px 5px 0 5px;
-            list-style: none;
-            flex: auto;
-            text-align: left;
-
-            &:hover {
-                cursor: pointer;
-                color: lighten(darkgrey, 10%);
-            }
-
-            a {
-                color: darkgrey;
-                margin-left: 0px;
-
-                &:hover {
-                    cursor: pointer;
-                    color: lighten(darkgrey, 10%);
-                }
-            }
-        }
-
-        .popularity {
-            i {
-                color: #df0f62;
-            }
-        }
-    }
-
-    &_img {
-        height: 50vh;
-        background-repeat: no-repeat !important;
-        background-size: cover !important;
-    }
-
-    &_text {
-        text-align: left;
-        display: inline-block;
-
-        h3 {
-            font-size: 24px;
-            font-weight: 200;
-            margin: 10px 0 0 0;
-            text-transform: capitalize;
-        }
-
-        p {
-            font-weight: 100;
-            font-size: 16px;
-            color: darkgray;
-            margin: 10px 0;
-        }
-
-        .recent {
-            padding: 0;
-        }
-
-        &-links {
-            display: flex;
-            justify-content: space-between;
-            margin: 15px 0;
-            flex-wrap: wrap;
-
-            .watch-now {
-                background: #222222;
-
-                &:hover {
-                    background: lighten(#222222, 5%);
-                }
-            }
-
-            a {
-                color: white;
-                text-decoration: none;
-                border: 1px solid #222222;
-                font-size: 17px;
-                width: 100%;
-                flex-basis: calc(50% - 5px);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                margin: 5px 0;
-                height: 50px;
-                border-radius: 5px;
-                box-sizing: border-box;
-                transition: all 0.5s;
-
-                &:hover {
-                    background: #222222;
-                }
-            }
-        }
-    }
-
-
-
-    // Movie Rating Styles
-
-    .rating {
-        text-align: center;
-        padding: 0;
+        align-items: center;
+        justify-content: center;
         margin: 5px 0;
+        height: 50px;
+        border-radius: 5px;
+        box-sizing: border-box;
+        transition: all 0.5s;
 
-        .stars {
-            width: 90%;
-            display: flex;
-            margin: 20px 0;
-
-            i {
-                flex: auto;
-                color: #df0f62;
-            }
+        &:hover {
+          background: #222222;
         }
+      }
+    }
+  }
 
-        &-btn {
-            background: #df0f62;
-            border-radius: 7px;
-            color: #ffffff;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            font-size: 17px;
-            justify-content: space-evenly;
-            align-items: center;
-            margin: 0;
+  // Movie Rating Styles
 
+  .rating {
+    text-align: center;
+    padding: 0;
+    margin: 5px 0;
 
-            &:focus {
-                outline: none;
-            }
-        }
+    .stars {
+      width: 90%;
+      display: flex;
+      margin: 20px 0;
 
-        &-btn_active {
-            i {
-                animation: btn-press 0.5s forwards;
-            }
-        }
-
-        &-container {
-            position: fixed;
-            bottom: 0;
-            transition: all 0.7s;
-            overflow: scroll;
-            background: #222222;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            left: 0;
-            align-items: center;
-            flex-direction: column;
-            border-radius: 20px 20px 0 0;
-            z-index: 9;
-            height: 0;
-
-            .btn {
-                background: #df0f62;
-                outline: none;
-                width: 50%;
-                border: none;
-                padding: 15px;
-                border-radius: 7px;
-                font-size: 22px;
-                margin-top: 10px;
-                transition: all 0.5s;
-                overflow: hidden;
-
-            }
-
-            .btn-active {
-                animation: btn-press 0.5s forwards;
-            }
-        }
-
-        &-active {
-            height: 30vh;
-            bottom: 0;
-            border-top: 1px solid grey;
-        }
+      i {
+        flex: auto;
+        color: #df0f62;
+      }
     }
 
-    // Movie Rating Styles End
+    &-btn {
+      background: #df0f62;
+      border-radius: 7px;
+      color: #ffffff;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      font-size: 17px;
+      justify-content: space-evenly;
+      align-items: center;
+      margin: 0;
+
+      @media screen and (min-width: 400px) {
+        justify-content: center;
+
+        i {
+          margin-left: 10px;
+        }
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    &-btn_active {
+      i {
+        animation: btn-press 0.5s forwards;
+      }
+    }
+
+    &-container {
+      position: fixed;
+      bottom: 0;
+      transition: all 0.7s;
+      overflow: scroll;
+      background: #222222;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      left: 0;
+      align-items: center;
+      flex-direction: column;
+      border-radius: 20px 20px 0 0;
+      z-index: 9;
+      height: 0;
+
+      .btn {
+        background: #df0f62;
+        outline: none;
+        width: 50%;
+        border: none;
+        padding: 15px;
+        border-radius: 7px;
+        font-size: 22px;
+        margin-top: 10px;
+        transition: all 0.5s;
+        overflow: hidden;
+      }
+
+      .btn-active {
+        animation: btn-press 0.5s forwards;
+      }
+    }
+
+    &-active {
+      height: 30vh;
+      bottom: 0;
+      border-top: 1px solid grey;
+    }
+  }
+
+  // Movie Rating Styles End
 }
-
-
 
 //  Episode Styles
 
 .seasons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
 
-    h4 {
-        flex: 1 0 38%;
-        text-align: center;
-        border: 1px solid #222222;
-        padding: 15px;
-        border-radius: 7px;
-        margin: 5px;
-    }
+  h4 {
+    flex: 1 0 38%;
+    text-align: center;
+    border: 1px solid #222222;
+    padding: 15px;
+    border-radius: 7px;
+    margin: 5px;
+  }
 }
 
 //  Episode Styles End
 
 @keyframes btn-press {
-    0% {
-        transform: scale(1);
-    }
+  0% {
+    transform: scale(1);
+  }
 
-    50% {
-        transform: scale(0);
-    }
+  50% {
+    transform: scale(0);
+  }
 
-    100% {
-        transform: scale(1);
-    }
+  100% {
+    transform: scale(1);
+  }
 }

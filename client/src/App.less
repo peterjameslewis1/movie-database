@@ -45,6 +45,10 @@ body {
     padding-top: 90px;
 
     .auth {
+      h2 {
+        margin-top: 0 !important;
+      }
+
       form {
         padding: 0 20px;
         display: flex;
@@ -63,7 +67,14 @@ body {
           flex: 48% 1;
           padding: 10px;
           margin: 1px 0;
+          border-bottom: 1px solid #df0f61 !important;
+          background-color: transparent;
+          color: white;
           border: none;
+
+          &::placeholder {
+            color: white;
+          }
 
           &:focus {
             outline: none;
@@ -74,10 +85,13 @@ body {
           flex: 0 1 50%;
           outline: none;
           margin-top: 20px;
+          background-color: #df0f61;
+          transition: all 0.2s;
 
           &:hover {
-            background-color: darken(white, 20%);
+            // background-color: darken(white, 20%);
             cursor: pointer;
+            transform: scale(0.95);
           }
         }
       }
@@ -201,34 +215,69 @@ body {
     height: 500px;
     overflow: scroll;
 
+    @media screen and (min-width: 700px) {
+      height: 700px;
+    }
+
     &_items {
       padding: 15px 15px 0 15px;
       border: 1px solid #2d2e2f;
+      display: flex;
+      flex-wrap: wrap;
+
+      @media screen and (min-width: 700px) {
+        padding: 0;
+
+        &--item {
+          flex: 1 1 45%;
+          margin: 10px;
+        }
+      }
 
       &--item {
         display: flex;
         background-color: #222222;
         border-radius: 7px;
-        height: 250px;
+        height: 400px;
         margin-bottom: 20px;
         color: white;
         text-decoration: none;
+        flex-direction: column;
+        flex: 1 1 100%;
+        margin: 5px;
+
+        @media screen and (min-width: 400px) {
+          flex: 1 1 45%;
+        }
+        @media screen and (min-width: 700px) {
+          height: 500px;
+          flex: 1 1 30%;
+        }
+        @media screen and (min-width: 1000px) {
+          height: 400px;
+          flex: 1 1 20%;
+        }
+        @media screen and (min-width: 1280px) {
+          height: 500px;
+        }
 
         .img {
           width: 100% !important;
           display: block !important;
-          flex: 60% !important;
+          flex: 1 1 100% !important;
           background-repeat: no-repeat !important;
-          background-size: contain !important;
-          border-radius: 7px;
+          background-size: cover !important;
+          border-radius: 7px 7px 0 0;
         }
 
         .text {
-          flex: 50% 1;
           display: flex;
           flex-direction: column;
           align-items: flex-start;
           justify-content: center;
+          padding: 0 0 10px 10px;
+          height: 170px;
+          box-sizing: border-box;
 
           h4 {
             font-size: 22px;
@@ -306,6 +355,7 @@ body {
           bottom: 0px;
           left: 0;
           color: white;
+          width: 100%;
           text-align: left;
           z-index: 99999;
           background: linear-gradient(
@@ -337,28 +387,6 @@ body {
           }
         }
 
-        // .description {
-        //     position: absolute;
-        //     bottom: 0;
-        //     left: 0;
-        //     z-index: 99999;
-        //     background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #0000009f 60%, black 100%);
-
-        //     padding: 20px;
-
-        //     h2 {
-        //         font-size: 24px;
-        //         margin: 10px 0;
-        //         font-weight: 400;
-        //         text-align: left;
-        //         padding: 0;
-        //     }
-
-        //     p {
-        //         color: white;
-        //     }
-        // }
-
         &:hover {
           .description {
             bottom: 0px;
@@ -381,8 +409,13 @@ body {
   justify-content: space-between;
   flex: 15%;
 
+  @media screen and (min-width: 700px) {
+    flex: 0%;
+  }
+
   i {
     font-size: 18px;
+    color: #df0f61;
   }
 
   .fa-search {
@@ -438,6 +471,7 @@ body {
         text-decoration: none;
         color: white;
         font-size: 24px;
+        width: 100%;
       }
     }
   }
