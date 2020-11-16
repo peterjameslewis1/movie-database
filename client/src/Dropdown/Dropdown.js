@@ -70,7 +70,7 @@ const Dropdown = props => {
                                     style={{ background: `url('https://image.tmdb.org/t/p/original${item.poster_path}?api_key=${key}')` }}
                                 ></div>
                                 <div className="text">
-                                    <h4>{item.name}</h4>
+                                    <h4>{item.title}</h4>
                                     <MovieStats stat={item.vote_average} />
                                 </div>
                             </Link>
