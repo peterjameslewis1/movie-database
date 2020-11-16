@@ -39,6 +39,9 @@ body .App {
   font-family: Helvetica, Arial, sans-serif;
   padding-top: 90px;
 }
+body .App .auth {
+  margin-top: 40px;
+}
 body .App .auth h2 {
   margin-top: 0 !important;
 }
@@ -56,7 +59,7 @@ body .App .auth form div {
   font-weight: 600;
 }
 body .App .auth form input {
-  flex: 48% 1;
+  flex: 0 1 50%;
   padding: 10px;
   margin: 1px 0;
   border-bottom: 1px solid #df0f61 !important;
@@ -206,6 +209,11 @@ body .App .auth form .submit:hover {
   flex-direction: column;
   flex: 1 1 100%;
   margin: 5px;
+  transition: all 0.5s;
+}
+.recent-container_items--item:hover {
+  transform: scale(0.95);
+  cursor: pointer;
 }
 @media screen and (min-width: 400px) {
   .recent-container_items--item {
@@ -389,6 +397,10 @@ body .App .auth form .submit:hover {
   justify-content: space-between;
   align-items: center;
 }
+.mobile-menu ul li:hover {
+  color: #df0f61;
+  cursor: pointer;
+}
 .mobile-menu ul li:first-child a {
   color: #df0f61;
   font-size: 30px;
@@ -398,6 +410,9 @@ body .App .auth form .submit:hover {
   color: white;
   font-size: 24px;
   width: 100%;
+}
+.mobile-menu ul li a:hover {
+  color: #df0f61;
 }
 .genres-menu {
   transition: all 0.7s;
@@ -411,6 +426,9 @@ body .App .auth form .submit:hover {
   list-style: none;
   text-decoration: none;
   margin: 5px 0;
+}
+.genres-menu a:hover {
+  color: #df0f61;
 }
 .open {
   height: 450px !important;
