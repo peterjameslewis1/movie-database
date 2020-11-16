@@ -10,7 +10,6 @@ const Season = props => {
     const seasonNumber = props.location.state.seasonNumber;
     const seasonsUrl = `https://api.themoviedb.org/3/tv/${id}/season/${seasonNumber}?api_key=${key}&language=en-US`;
 
-    console.log(data)
 
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -20,7 +19,6 @@ const Season = props => {
                 const response = await fetch(seasonsUrl);
                 const seasons = await response.json()
                 setData(seasons)
-                console.log(seasons)
             };
             fetchSeasons();
         }

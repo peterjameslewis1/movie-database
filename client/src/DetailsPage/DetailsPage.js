@@ -51,15 +51,14 @@ const SingleMovie = (props) => {
     const clickHandler = () => {
         setClicked(!clicked)
     }
-    //
+
     // Mapping over movie genres
     const movieGenres = (
         data.genres.map(item => {
             return <Link to={{ pathname: pathname.includes('/tv/') ? `/tv/genres/${item.name}` : `/genres/${item.name}` }} key={item.id}>{item.name}, </Link>
         })
     )
-    //
-    console.log(data)
+
 
     if (pathname === `/${id}`) {
         return (

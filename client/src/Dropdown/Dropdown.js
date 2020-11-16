@@ -13,7 +13,6 @@ const Dropdown = props => {
     const tv = `https://api.themoviedb.org/3/tv/popular?api_key=${key}&language=en-US&page=3`
 
     const pathname = window.location.pathname;
-    console.log(data)
 
     const clickHandler = () => {
         setClicked(!clicked)

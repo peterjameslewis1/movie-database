@@ -29,7 +29,6 @@ function App() {
     setAuthenticated(!authenticated)
     setUserData({ status: 0 })
   }
-  console.log(authenticated)
 
   return (
     <Router>

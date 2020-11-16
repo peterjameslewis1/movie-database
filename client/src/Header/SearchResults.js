@@ -3,10 +3,6 @@ import { Link } from 'react-router-dom';
 
 const SearchResults = ({ data, closeMenu }) => {
     const pathname = window.location.pathname;
-    console.log(data)
-
-
-
 
     return (
         <div className="list">

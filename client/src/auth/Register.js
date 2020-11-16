@@ -12,8 +12,6 @@ const Register = (props) => {
         password: ''
     })
 
-    console.log()
-
     // To capture the target.values of each input
     const onChangeHandler = e => {
         const value = e.target.value
@@ -39,7 +37,6 @@ const Register = (props) => {
             }
             return;
         }).catch(err => {
-            console.log(err.response)
             setError(err.response)
         })
         setNewUser({

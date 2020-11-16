@@ -31,12 +31,9 @@ router.post('/register', async (req, res) => {
         password: hashedPassword
     })
     try {
-        console.log('success')
         const savedUser = await user.save();
-        console.log(savedUser)
         return res.json(savedUser)
     } catch (err) {
-        console.log(err)
         return res.status(400).send(err);
     }
 })
@@ -44,7 +41,6 @@ router.post('/register', async (req, res) => {
 
 // LOGIN
 router.post('/login', async (req, res) => {
-    console.log(req.body)
     // Validation
     const { error } = await loginValidation(req.body)
     if (error) return res.status(400).send(error.details[0].message)
@@ -71,7 +67,6 @@ router.post('/login', async (req, res) => {
 
 // LOGOUT
 router.post('/logout', async (req, res) => {
-    console.log(req.body.token)
     // Check if token already exists
     const user = await User.findOne({ token: req.body.token })
     if (!user) return res.status(400).send('An error occured')

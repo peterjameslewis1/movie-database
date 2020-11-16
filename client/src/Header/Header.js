@@ -41,7 +41,6 @@ const Header = ({ authenticated, userData, logoutHandler }) => {
         const response = await fetch(`https://api.themoviedb.org/3/search/multi?api_key=${key}&language=en-US&query=${query}&page=1&include_adult=false`);
         const movies = await response.json()
         setData(movies.results)
-        console.log(data)
         return;
     };
     // Setting query with setTimeout then fetching data to minimise http requests
