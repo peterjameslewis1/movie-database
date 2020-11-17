@@ -47,8 +47,13 @@
 .single-movie_img {
   height: 50vh;
   background-repeat: no-repeat !important;
-  background-size: contain !important;
+  background-size: cover !important;
   background-position: center top !important;
+}
+@media screen and (min-width: 700px) {
+  .single-movie_img {
+    background-size: contain !important;
+  }
 }
 .single-movie_text {
   text-align: left;

@@ -13,8 +13,10 @@ const Header = ({ authenticated, userData, logoutHandler }) => {
     const wrapperRef = useRef(null);
     const [watching, setWatching] = useState(false)
     const pathname = window.location.pathname;
+    console.log(pathname)
+    const history = useHistory();
 
-    console.log('rerendered')
+
 
     // State to open and close menu's
     const menuClickHandler = () => {
@@ -26,12 +28,6 @@ const Header = ({ authenticated, userData, logoutHandler }) => {
     const watchClickHandler = () => {
         setWatching(!watching)
     }
-
-    const history = useHistory();
-    const goBack = event => {
-        history.goBack()
-    }
-
 
     const debouncedSave = useCallback(
         debounce(query => fetchData(query), 1000),
@@ -55,16 +51,15 @@ const Header = ({ authenticated, userData, logoutHandler }) => {
 
     return (
         <div className="header">
-            <div style={{
-                display: pathname === '/' || pathname === '/tv/'
-                    ? 'none'
-                    : 'block'
-            }}
-                onClick={(e) => goBack()}>
-                <i className="fas fa-arrow-left" style={{ marginRight: '10px' }}></i>
-            </div>
+            {/* <div
+                onClick={(e) => history.goBack()}>
+                <i className="fas fa-home" style={{ marginRight: '10px' }}></i>
+            </div> */}
             <div className="logo">
-                <Link to="/">{authenticated ? `Welcome ${userData.data.firstName}` : 'ProShowz'}</Link>
+                <Link to="/">
+                    <i className="fas fa-home"></i>
+                    {authenticated ? `Welcome ${userData.data.firstName}` : 'ProShowz'}
+                </Link>
             </div>
 
             <div className="mobile-nav">

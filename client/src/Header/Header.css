@@ -73,6 +73,10 @@
   font-size: 28px;
   font-weight: 900;
 }
+.header .logo a i {
+  font-size: 24px;
+  margin-right: 10px;
+}
 .header .list {
   margin: -2px 0 0 0;
   box-sizing: border-box;
