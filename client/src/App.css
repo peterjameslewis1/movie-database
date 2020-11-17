@@ -65,7 +65,8 @@ body .App .auth form input {
   border-bottom: 1px solid #df0f61 !important;
   background-color: transparent;
   color: white;
-  border: none;
+  border-left: none;
+  border-right: none;
 }
 body .App .auth form input::placeholder {
   color: white;
@@ -79,6 +80,7 @@ body .App .auth form .submit {
   margin-top: 20px;
   background-color: #df0f61;
   transition: all 0.2s;
+  -webkit-appearance: none;
 }
 body .App .auth form .submit:hover {
   cursor: pointer;

@@ -71,7 +71,8 @@ body {
           border-bottom: 1px solid #df0f61 !important;
           background-color: transparent;
           color: white;
-          border: none;
+          border-left: none;
+          border-right: none;
 
           &::placeholder {
             color: white;
@@ -88,9 +89,9 @@ body {
           margin-top: 20px;
           background-color: #df0f61;
           transition: all 0.2s;
+          -webkit-appearance: none;
 
           &:hover {
-            // background-color: darken(white, 20%);
             cursor: pointer;
             transform: scale(0.95);
           }

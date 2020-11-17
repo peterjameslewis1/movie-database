@@ -24,7 +24,7 @@ const Register = (props) => {
     // Register new user
     const registerUser = async e => {
         e.preventDefault();
-        const login = await axios({
+        await axios({
             method: 'POST',
             url: '/api/register',
             data: JSON.stringify(newUser),
