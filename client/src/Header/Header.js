@@ -14,6 +14,8 @@ const Header = ({ authenticated, userData, logoutHandler }) => {
     const [watching, setWatching] = useState(false)
     const pathname = window.location.pathname;
 
+    console.log('rerendered')
+
     // State to open and close menu's
     const menuClickHandler = () => {
         setMenu(!menu)

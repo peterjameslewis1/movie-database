@@ -100,6 +100,11 @@
 .single-movie_text-links a:hover {
   background: #222222;
 }
+.single-movie_text-links a:focus {
+  border: none;
+  outline: none;
+  color: white;
+}
 .single-movie .rating {
   text-align: center;
   padding: 0;

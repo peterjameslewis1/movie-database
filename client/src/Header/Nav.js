@@ -10,6 +10,7 @@ const Nav = ({ userData, closeMenu, logoutHandler }) => {
     const movieGenreUrl = `https://api.themoviedb.org/3/genre/movie/list?api_key=${key}&language=en-US`
     const tvGenreUrl = `https://api.themoviedb.org/3/genre/tv/list?api_key=${key}&language=en-US`
     const pathname = window.location.pathname;
+    console.log('rerendered')
 
 
     const getGenres = async e => {
