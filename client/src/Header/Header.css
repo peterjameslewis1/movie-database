@@ -32,6 +32,7 @@
   background: #222222;
   transition: 0.5s all;
   -webkit-appearance: none;
+  border-radius: none;
 }
 .header .show-search input::placeholder {
   color: white;
