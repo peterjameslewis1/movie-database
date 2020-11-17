@@ -1,50 +1,55 @@
+.season-title {
+  margin: 0;
+  font-size: 36px;
+  background: #141212;
+  padding: 20px 0 20px 15px;
+}
+
 .season-block {
-    background: #141212;
+  background: #141212;
+  display: flex;
+  flex-wrap: wrap;
 
-    h2 {
-        margin: 0;
-        font-size: 36px;
-        background: #141212;
-        padding: 20px 0 20px 15px;
+  &-container {
+    flex: 1 1 100%;
+    padding: 10px 10px 30px 10px;
+
+    @media screen and (min-width: 1280px) {
+      flex: 1 1 45%;
+    }
+    h3 {
+      margin-bottom: 10px;
+      font-weight: 400;
+      font-size: 26px;
+      text-align: left;
     }
 
-    &-container {
-
-        h3 {
-            margin: 0;
-            padding: 10px 0 10px 15px;
-            font-weight: 400;
-            font-size: 26px;
-            text-align: left;
-        }
-
-        &_episode {
-            margin-bottom: 50px;
-
-            &-img {
-                height: 200px !important;
-                background-repeat: no-repeat !important;
-                background-size: cover !important;
-            }
-
-            &-text {
-                padding: 0 15px;
-
-                h3 {
-                    font-size: 24px;
-                    font-weight: 100;
-                    margin: 20px 0;
-                    padding: 0;
-                }
-
-                p {
-                    margin: 20px 0;
-                    text-align: justify;
-                    font-weight: 100;
-                    color: darkgrey;
-
-                }
-            }
-        }
+    &-img {
+      height: 200px !important;
+      background-repeat: no-repeat !important;
+      background-size: cover !important;
+      background-position: center top !important;
+      @media screen and (min-width: 700px) {
+        height: 500px !important;
+      }
     }
+
+    &-text {
+      padding: 0 15px;
+
+      h3 {
+        font-size: 24px;
+        font-weight: 100;
+        margin: 20px 0;
+        padding: 0;
+      }
+
+      p {
+        margin: 20px 0;
+        text-align: justify;
+        font-weight: 100;
+        color: darkgrey;
+      }
+    }
+  }
 }

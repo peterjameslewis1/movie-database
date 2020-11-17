@@ -1,37 +1,50 @@
-.season-block {
-  background: #141212;
-}
-.season-block h2 {
+.season-title {
   margin: 0;
   font-size: 36px;
   background: #141212;
   padding: 20px 0 20px 15px;
 }
+.season-block {
+  background: #141212;
+  display: flex;
+  flex-wrap: wrap;
+}
+.season-block-container {
+  flex: 1 1 100%;
+  padding: 10px 10px 30px 10px;
+}
+@media screen and (min-width: 1280px) {
+  .season-block-container {
+    flex: 1 1 45%;
+  }
+}
 .season-block-container h3 {
-  margin: 0;
-  padding: 10px 0 10px 15px;
+  margin-bottom: 10px;
   font-weight: 400;
   font-size: 26px;
   text-align: left;
 }
-.season-block-container_episode {
-  margin-bottom: 50px;
-}
-.season-block-container_episode-img {
+.season-block-container-img {
   height: 200px !important;
   background-repeat: no-repeat !important;
   background-size: cover !important;
+  background-position: center top !important;
 }
-.season-block-container_episode-text {
+@media screen and (min-width: 700px) {
+  .season-block-container-img {
+    height: 500px !important;
+  }
+}
+.season-block-container-text {
   padding: 0 15px;
 }
-.season-block-container_episode-text h3 {
+.season-block-container-text h3 {
   font-size: 24px;
   font-weight: 100;
   margin: 20px 0;
   padding: 0;
 }
-.season-block-container_episode-text p {
+.season-block-container-text p {
   margin: 20px 0;
   text-align: justify;
   font-weight: 100;
