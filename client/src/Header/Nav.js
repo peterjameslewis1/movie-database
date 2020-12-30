@@ -26,13 +26,13 @@ const Nav = ({ userData, closeMenu, logoutHandler }) => {
 
     return (
         <ul className="nav">
-            <li className="nav-link"><Link to="/" onClick={closeMenu}>Home</Link><i onClick={closeMenu} className="fas fa-times"></i></li>
+            <li className="nav-link"><Link to="/" >Home</Link><i  className="fas fa-times" onClick={closeMenu}></i></li>
             {userData.status === 200
-                ? <SignOut userData={userData} logoutHandler={logoutHandler} closeMenu={closeMenu} />
+                ? <SignOut userData={userData} logoutHandler={logoutHandler} />
                 :
-                <li className="nav-link"><Link to="/api/account" onClick={closeMenu}>Log in</Link></li>
+                <li className="nav-link"><Link to="/api/account" >Log in</Link></li>
             }
-            <li className="nav-link"><Link to="/api/account" onClick={closeMenu}>Register</Link></li>
+            <li className="nav-link"><Link to="/api/account" >Register</Link></li>
             <li onClick={(e) => {
                 e.preventDefault();
                 genreHandler();
@@ -42,7 +42,7 @@ const Nav = ({ userData, closeMenu, logoutHandler }) => {
             </li>
             <ul className={genre ? 'genres-menu open' : 'genres-menu'}>
                 {data.map(genres => {
-                    return <Link to={{ pathname: pathname.includes('/tv/') ? `/tv/genres/${genres.name}` : `/genres/${genres.name}` }} key={genres.id} onClick={closeMenu}>{genres.name}</Link>
+                    return <Link to={{ pathname: pathname.includes('/tv/') ? `/tv/genres/${genres.name}` : `/genres/${genres.name}` }} key={genres.id} >{genres.name}</Link>
                 })}
             </ul>
         </ul>

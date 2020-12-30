@@ -153,6 +153,7 @@
     left: 0;
     padding-bottom: 5px;
     font-size: 14px;
+    align-items: center;
 
     &_movies,
     &_tv {
@@ -160,6 +161,7 @@
       text-align: center;
       color: white;
       text-decoration: none;
+      font-size: 12px;
     }
 
     &_movies {
@@ -187,6 +189,134 @@
       }
     }
   }
-
   // SearchResults Styles End
+
+  // Nav Open/Close Styles
+
+  .desktop-nav-menu {
+    display: none;
+    @media screen and (min-width: 769px) {
+      display: block;
+      width: 30%;
+      .nav {
+        display: flex;
+        margin: 0;
+        list-style: none;
+        padding: 0;
+        justify-content: space-between;
+        .nav-link {
+          a {
+            color: #df0f62;
+            text-decoration: none;
+            font-size: 20px;
+            &:hover {
+              color: darken(white, 20%);
+            }
+          }
+          &:first-child {
+            i {
+              display: none;
+            }
+          }
+        }
+        .genre-dropdown {
+          display: none;
+        }
+        .genres-menu {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .mobile-nav {
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    flex: 0 1 15%;
+
+    @media screen and (min-width: 769px) {
+      display: none;
+      .desktop-nav-menu {
+        ul {
+          display: flex;
+          margin-top: 0;
+          color: white;
+          list-style: none;
+        }
+      }
+    }
+
+    i {
+      font-size: 18px;
+      color: #df0f61;
+    }
+
+    .fa-search {
+      color: #df0f61;
+    }
+  }
+
+  .mobile {
+    width: 50% !important;
+    padding: 20px;
+  }
+
+  .mobile-menu {
+    margin: 0;
+    top: 0;
+    box-sizing: border-box;
+    display: unset;
+    width: 0%;
+    z-index: 99;
+    left: 0;
+    right: 0;
+    border-radius: 0;
+    position: absolute;
+    background: #222222;
+    height: 100vh;
+    overflow: hidden;
+    transition: all 0.5s;
+    white-space: nowrap;
+
+    ul {
+      margin: 0;
+      padding: 0;
+
+      li {
+        padding: 10px 0;
+        color: white;
+        list-style: none;
+        margin-right: 5px;
+        font-size: 22px;
+        font-weight: 200;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &:hover {
+          color: #df0f61;
+          cursor: pointer;
+        }
+
+        &:first-child {
+          a {
+            color: #df0f61;
+            font-size: 22px;
+          }
+        }
+
+        a {
+          text-decoration: none;
+          color: white;
+          font-size: 22px;
+          width: 100%;
+
+          &:hover {
+            color: #df0f61;
+          }
+        }
+      }
+    }
+  }
 }

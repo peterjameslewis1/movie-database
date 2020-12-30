@@ -1,36 +1,32 @@
 .single-movie {
   background: #0d0f0a;
 
-  .container {
-    max-width: 95%;
-    margin: 15px auto;
-  }
-
   h2 {
-    padding: 15px 15px 0 15px;
     font-size: 38px;
     text-align: left;
-    margin: 0;
-  }
-
-  ul {
-    margin: 0;
+    padding: 10px;
+    margin: 20px 0;
   }
 
   &_info {
     position: relative;
     display: flex;
+    padding: 0 10px;
+    justify-content: flex-start;
     flex-wrap: wrap;
-    padding: 0;
-    margin: 10px auto !important;
 
     li {
       color: darkgray;
       font-size: 12px;
-      margin: 5px 5px 0 5px;
       list-style: none;
-      flex: auto;
+      flex: 1 1 auto;
       text-align: left;
+      align-items: center;
+
+      @media screen and (min-width: 768px) {
+        flex: 0 1 auto;
+        margin-right: 20px;
+      }
 
       &:hover {
         cursor: pointer;
@@ -61,14 +57,18 @@
     background-size: cover !important;
     background-position: center top !important;
 
-    @media screen and (min-width: 700px) {
+    @media screen and (min-width: 769px) {
       background-size: contain !important;
+      background-position: center center !important;
     }
   }
 
   &_text {
     text-align: left;
     display: inline-block;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
 
     h3 {
       font-size: 24px;

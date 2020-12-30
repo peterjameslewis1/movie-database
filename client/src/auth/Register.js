@@ -60,7 +60,7 @@ const Register = (props) => {
     }, [status])
 
     return (
-        <div className="auth">
+        <div className="register">
             <h2>Sign up</h2>
             <form >
                 <input type="text" name="firstName" value={newUser.firstName} onChange={onChangeHandler} placeholder="First Name" required />

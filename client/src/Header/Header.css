@@ -129,6 +129,7 @@
   left: 0;
   padding-bottom: 5px;
   font-size: 14px;
+  align-items: center;
 }
 .header .app-routes_movies,
 .header .app-routes_tv {
@@ -136,6 +137,7 @@
   text-align: center;
   color: white;
   text-decoration: none;
+  font-size: 12px;
 }
 .header .app-routes_movies::before {
   content: "";
@@ -155,4 +157,114 @@
   bottom: 0px;
   left: 50%;
   background: #df0f61;
+}
+.header .desktop-nav-menu {
+  display: none;
+}
+@media screen and (min-width: 769px) {
+  .header .desktop-nav-menu {
+    display: block;
+    width: 30%;
+  }
+  .header .desktop-nav-menu .nav {
+    display: flex;
+    margin: 0;
+    list-style: none;
+    padding: 0;
+    justify-content: space-between;
+  }
+  .header .desktop-nav-menu .nav .nav-link a {
+    color: #df0f62;
+    text-decoration: none;
+    font-size: 20px;
+  }
+  .header .desktop-nav-menu .nav .nav-link a:hover {
+    color: #cccccc;
+  }
+  .header .desktop-nav-menu .nav .nav-link:first-child i {
+    display: none;
+  }
+  .header .desktop-nav-menu .nav .genre-dropdown {
+    display: none;
+  }
+  .header .desktop-nav-menu .nav .genres-menu {
+    display: none;
+  }
+}
+.header .mobile-nav {
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  flex: 0 1 15%;
+}
+@media screen and (min-width: 769px) {
+  .header .mobile-nav {
+    display: none;
+  }
+  .header .mobile-nav .desktop-nav-menu ul {
+    display: flex;
+    margin-top: 0;
+    color: white;
+    list-style: none;
+  }
+}
+.header .mobile-nav i {
+  font-size: 18px;
+  color: #df0f61;
+}
+.header .mobile-nav .fa-search {
+  color: #df0f61;
+}
+.header .mobile {
+  width: 50% !important;
+  padding: 20px;
+}
+.header .mobile-menu {
+  margin: 0;
+  top: 0;
+  box-sizing: border-box;
+  display: unset;
+  width: 0%;
+  z-index: 99;
+  left: 0;
+  right: 0;
+  border-radius: 0;
+  position: absolute;
+  background: #222222;
+  height: 100vh;
+  overflow: hidden;
+  transition: all 0.5s;
+  white-space: nowrap;
+}
+.header .mobile-menu ul {
+  margin: 0;
+  padding: 0;
+}
+.header .mobile-menu ul li {
+  padding: 10px 0;
+  color: white;
+  list-style: none;
+  margin-right: 5px;
+  font-size: 22px;
+  font-weight: 200;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header .mobile-menu ul li:hover {
+  color: #df0f61;
+  cursor: pointer;
+}
+.header .mobile-menu ul li:first-child a {
+  color: #df0f61;
+  font-size: 22px;
+}
+.header .mobile-menu ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 22px;
+  width: 100%;
+}
+.header .mobile-menu ul li a:hover {
+  color: #df0f61;
 }

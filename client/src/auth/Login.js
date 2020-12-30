@@ -1,6 +1,6 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios'
-import { withRouter, useHistory } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 
 
@@ -13,7 +13,6 @@ const Login = (props) => {
     })
     const [error, setError] = useState(0)
     const [status, setStatus] = useState("")
-    const history = useHistory()
     const userActive = props.userData.status === 200;
 
     const onChangeHandler = e => {

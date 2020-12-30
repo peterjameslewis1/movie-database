@@ -1,5 +1,5 @@
 import React, { useState, useRef, useCallback } from 'react';
-import { useHistory, Link } from 'react-router-dom'
+import { useHistory, Link, withRouter } from 'react-router-dom'
 import Nav from './Nav';
 import SearchResults from './SearchResults';
 import debounce from 'lodash.debounce';
@@ -12,8 +12,6 @@ const Header = ({ authenticated, userData, logoutHandler }) => {
     const [data, setData] = useState([])
     const wrapperRef = useRef(null);
     const [watching, setWatching] = useState(false)
-    const pathname = window.location.pathname;
-    console.log(pathname)
     const history = useHistory();
 
 
@@ -51,13 +49,14 @@ const Header = ({ authenticated, userData, logoutHandler }) => {
 
     return (
         <div className="header">
-            {/* <div
-                onClick={(e) => history.goBack()}>
-                <i className="fas fa-home" style={{ marginRight: '10px' }}></i>
-            </div> */}
+            <div
+                style={{ display: history.location.pathname === '/' ? 'none' : 'block' }}
+                onClick={() => history.goBack()}>
+                <i className="fas fa-arrow-left" style={{ marginRight: '10px' }}></i>
+            </div>
             <div className="logo">
                 <Link to="/">
-                    <i className="fas fa-home"></i>
+                    {/* <i className="fas fa-home"></i> */}
                     {authenticated ? `Welcome ${userData.data.firstName}` : 'ProShowz'}
                 </Link>
             </div>
@@ -67,8 +66,10 @@ const Header = ({ authenticated, userData, logoutHandler }) => {
                 <div className="burger-menu" onClick={menuClickHandler}><i className={authenticated ? 'fas fa-user-circle' : 'fas fa-bars'}></i></div>
             </div>
 
-            <div ref={wrapperRef} className={menu ? 'mobile-menu mobile' : 'mobile-menu'}><Nav userData={userData} closeMenu={menuClickHandler} logoutHandler={logoutHandler} /></div>
+            <div ref={wrapperRef} className={menu ? 'mobile-menu mobile' : 'desktop-nav-menu'}><Nav userData={userData} closeMenu={menuClickHandler} logoutHandler={logoutHandler} /></div>
 
+
+            
             <div className={search ? 'show-search search' : 'show-search'} >
                 <input ref={wrapperRef} type="search" value={query} onChange={(e) => onChange(e)} placeholder="Search..." />
                 <i onClick={fetchData} className="fas fa-arrow-circle-right"></i>
@@ -84,4 +85,4 @@ const Header = ({ authenticated, userData, logoutHandler }) => {
 }
 
 
-export default Header;
+export default withRouter(Header);

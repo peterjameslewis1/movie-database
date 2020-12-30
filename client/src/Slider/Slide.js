@@ -7,7 +7,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper.scss';
 import 'swiper/components/navigation/navigation.scss';
 import 'swiper/components/pagination/pagination.scss';
-import '../App.css';
+import { over } from 'lodash';
+
 // configure Swiper to use modules
 SwiperCore.use([Navigation, Pagination, Autoplay]);
 
@@ -33,8 +34,6 @@ const Slide = (props) => {
             }
             getSliderMovies()
         }
-
-
         // Clean up
         return () => {
             mounted = false;
@@ -54,24 +53,28 @@ const Slide = (props) => {
         >
 
             {data.map((item, index) => {
+                const overview = item.overview.slice(0, 100);
+                console.log(overview)
                 return (
-
-                    <SwiperSlide key={item.id} style={{ background: `url('https://image.tmdb.org/t/p/original${item.poster_path}?api_key=8672037f7713f0f454d73f60ab645f36')` }}
+                    <SwiperSlide
+                        key={item.id}
+                        // style={{ background: `url('https://image.tmdb.org/t/p/original${item.poster_path}?api_key=8672037f7713f0f454d73f60ab645f36')` }}
                     >
-                        <Link to={{ pathname: pathname.includes('/tv/') ? `/tv/${item.id}` : `/${item.id}` }} key={index}
+                        <Link
+                            to={{
+                                pathname: pathname.includes('/tv/') ? `/tv/${item.id}` : `/${item.id}`
+                            }}
+                            key={index}
                         >
-
-
+                            <img src={`https://image.tmdb.org/t/p/original${item.poster_path}?api_key=8672037f7713f0f454d73f60ab645f36`}/>
                             <div className="center" >
                                 <h2>{pathname === '/' ? item.title : item.name}</h2>
-                                <p>{item.overview}</p>
+                                <p>{overview}...</p>
                             </div>
                         </Link>
                     </SwiperSlide>
-
                 )
             })}
-      ...
         </Swiper>
     )
 }

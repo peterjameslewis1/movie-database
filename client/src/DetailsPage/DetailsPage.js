@@ -65,7 +65,7 @@ const SingleMovie = (props) => {
             <>
 
                 <div className="single-movie" >
-                    <h2>{data.title}</h2>
+                <h2>{data.title}</h2>
                     <ul className="single-movie_info container">
                         <li className="popularity"><i onClick={clickHandler} className={clicked ? 'pulse-active fas fa-star' : 'fas fa-star'}></i>{parseInt(data.popularity)}</li>
                         <li>{movieGenres}</li>
@@ -76,7 +76,7 @@ const SingleMovie = (props) => {
                         style={{ background: `url('https://image.tmdb.org/t/p/original${data.poster_path}?api_key=8672037f7713f0f454d73f60ab645f36')` }}
                     >
                     </div>
-                    <div className="single-movie_text container">
+                    <div className="single-movie_text">
                         <MovieStats stat={data.vote_average} />
                         <h3>{data.tagline}</h3>
                         <p>{data.overview}</p>
