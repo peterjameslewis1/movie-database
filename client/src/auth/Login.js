@@ -67,7 +67,7 @@ const Login = (props) => {
             <form>
                 <input type="email" name="email" value={loginText.email} onChange={onChangeHandler} placeholder="Email" required />
                 <input type="password" name="password" value={loginText.password} onChange={onChangeHandler} placeholder="password" required />
-                <input type="submit" placeholder="Create account" className="submit" onClick={loginUser} />
+                <button type="submit" placeholder="Create account" className="submit" onClick={loginUser} >Login</button>
                 {loginPromt()}
             </form>
         </div>

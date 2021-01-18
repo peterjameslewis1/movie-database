@@ -67,10 +67,10 @@ const Register = (props) => {
                 <input type="text" name="lastName" value={newUser.lastName} onChange={onChangeHandler} placeholder="Last Name" required />
                 <input type="email" name="email" value={newUser.email} onChange={onChangeHandler} placeholder="Email" required />
                 <input type="password" name="password" value={newUser.password} onChange={onChangeHandler} placeholder="password" required />
-                <input type="submit" onClick={registerUser} className="submit" />
+                <button type="submit" onClick={registerUser} className="submit" >Register</button>
                 {signInPromt()}
             </form>
-        </div>
+        </div >
     )
 }
 
