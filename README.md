@@ -5,6 +5,10 @@ Project hosted on Heroku with Node/express and Mongodb
 
 https://obscure-journey-43421.herokuapp.com/
 
+Test account:
+Email: test@test.com
+Password: password
+
 ## MOBILE
 
 <img src="./img/Screen Shot 2021-01-18 at 11.57.07_iphone12black_portrait.png">
