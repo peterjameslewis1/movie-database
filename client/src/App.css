@@ -31,6 +31,7 @@ h2 {
 }
 body {
   margin: 0;
+  background: #131212;
 }
 body .App {
   text-align: center;

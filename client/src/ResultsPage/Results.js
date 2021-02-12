@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 
 
 const Results = props => {
-    const key = '8672037f7713f0f454d73f60ab645f36';
+    const API_KEY = process.env.REACT_APP_API_KEY;
     const [data, setData] = useState([]);
     const query = props.title;
-    const tvUrl = `https://api.themoviedb.org/3/search/tv?api_key=${key}&language=en-US&page=1&query=${query}&include_adult=false`;
-    const movieUrl = `https://api.themoviedb.org/3/search/movie?api_key=${key}&language=en-US&query=${query}&page=1&include_adult=false`;
+    const tvUrl = `https://api.themoviedb.org/3/search/tv?api_key=${API_KEY}&language=en-US&page=1&query=${query}&include_adult=false`;
+    const movieUrl = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${query}&page=1&include_adult=false`;
     const pathname = window.location.pathname;
 
     useEffect(() => {
@@ -34,9 +34,8 @@ const Results = props => {
                     return (
                         <Link to={{ pathname: pathname.includes('/tv/') ? `/tv/${item.id}` : `/${item.id}` }} className="results-container_item"
                             key={item.id}
-                            // style={{ background: `url('https://image.tmdb.org/t/p/original${item.poster_path}?api_key=8672037f7713f0f454d73f60ab645f36')` }}
                         >
-                            <img src={`https://image.tmdb.org/t/p/original${item.poster_path}?api_key=8672037f7713f0f454d73f60ab645f36`} />
+                            <img src={`https://image.tmdb.org/t/p/original${item.poster_path}?api_key=${API_KEY}`} />
                         </Link>
                     )
                 })}

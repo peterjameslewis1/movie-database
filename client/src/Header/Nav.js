@@ -4,11 +4,11 @@ import SignOut from '../auth/SignOut'
 
 
 const Nav = ({ userData, closeMenu, logoutHandler }) => {
-    const key = '8672037f7713f0f454d73f60ab645f36';
+    const API_KEY = process.env.REACT_APP_API_KEY;
     const [genre, setGenre] = useState(false);
     const [data, setData] = useState([]);
-    const movieGenreUrl = `https://api.themoviedb.org/3/genre/movie/list?api_key=${key}&language=en-US`
-    const tvGenreUrl = `https://api.themoviedb.org/3/genre/tv/list?api_key=${key}&language=en-US`
+    const movieGenreUrl = `https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}&language=en-US`
+    const tvGenreUrl = `https://api.themoviedb.org/3/genre/tv/list?api_key=${API_KEY}&language=en-US`
     const pathname = window.location.pathname;
 
 
@@ -26,7 +26,7 @@ const Nav = ({ userData, closeMenu, logoutHandler }) => {
 
     return (
         <ul className="nav">
-            <li className="nav-link"><Link to="/" >Home</Link><i  className="fas fa-times" onClick={closeMenu}></i></li>
+            <li className="nav-link"><Link to="/" >Home</Link><i className="fas fa-times" onClick={closeMenu}></i></li>
             {userData.status === 200
                 ? <SignOut userData={userData} logoutHandler={logoutHandler} />
                 :

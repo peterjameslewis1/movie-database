@@ -13,10 +13,10 @@ import '../App.css';
 SwiperCore.use([Navigation, Pagination, Autoplay]);
 
 const Slider2 = props => {
-    const key = '8672037f7713f0f454d73f60ab645f36';
+    const API_KEY = process.env.REACT_APP_API_KEY;
     const [data, setData] = useState([]);
-    const tv = `https://api.themoviedb.org/3/tv/top_rated?api_key=${key}&language=en-US&page=1`
-    const movie = `https://api.themoviedb.org/3/movie/now_playing?api_key=${key}&language=en-US&page=1`
+    const tv = `https://api.themoviedb.org/3/tv/top_rated?api_key=${API_KEY}&language=en-US&page=1`
+    const movie = `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}&language=en-US&page=1`
 
     const pathname = window.location.pathname;
 
@@ -51,7 +51,7 @@ const Slider2 = props => {
                 {data.map((item, index) => {
                     return (
                         <SwiperSlide key={index}
-                            style={{ background: `url('https://image.tmdb.org/t/p/original${item.poster_path}?api_key=8672037f7713f0f454d73f60ab645f36')` }}
+                            style={{ background: `url('https://image.tmdb.org/t/p/original${item.poster_path}?api_key=${API_KEY}')` }}
                             key={index}
                         >
                             <Link to={{

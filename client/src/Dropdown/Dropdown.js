@@ -4,13 +4,13 @@ import MovieStats from '../MovieStats';
 
 
 const Dropdown = props => {
-    const key = '8672037f7713f0f454d73f60ab645f36';
+    const API_KEY = process.env.REACT_APP_API_KEY;
     const [clicked, setClicked] = useState(false)
     const [data, setData] = useState([])
-    const similarMovie = `https://api.themoviedb.org/3/movie/${props.id}/similar?api_key=${key}&language=en-US&page=1`;
-    const similarTv = `https://api.themoviedb.org/3/tv/${props.id}/similar?api_key=${key}&language=en-US&page=1`;
-    const upcoming = `https://api.themoviedb.org/3/movie/upcoming?api_key=${key}&language=en-US&page=1`;
-    const tv = `https://api.themoviedb.org/3/tv/popular?api_key=${key}&language=en-US&page=3`
+    const similarMovie = `https://api.themoviedb.org/3/movie/${props.id}/similar?api_key=${API_KEY}&language=en-US&page=1`;
+    const similarTv = `https://api.themoviedb.org/3/tv/${props.id}/similar?api_key=${API_KEY}&language=en-US&page=1`;
+    const upcoming = `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}&language=en-US&page=1`;
+    const tv = `https://api.themoviedb.org/3/tv/popular?api_key=${API_KEY}&language=en-US&page=3`
 
     const pathname = window.location.pathname;
 
@@ -66,9 +66,8 @@ const Dropdown = props => {
                                 className="recent-container_items--item"
                                 key={index}>
                                 <div className="img"
-                                // style={{ background: `url('https://image.tmdb.org/t/p/original${item.poster_path}?api_key=${key}')` }}
                                 >
-                                    <img src={`https://image.tmdb.org/t/p/original${item.poster_path}?api_key=${key}`} />
+                                    <img src={`https://image.tmdb.org/t/p/original${item.poster_path}?api_key=${API_KEY}`} />
 
                                 </div>
                                 <div className="text">

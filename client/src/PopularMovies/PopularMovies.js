@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 
 
 const Popular = props => {
-    const key = '8672037f7713f0f454d73f60ab645f36';
+    const API_KEY = process.env.REACT_APP_API_KEY;
     const [data, setData] = useState([]);
-    const tv = `https://api.themoviedb.org/3/tv/popular?api_key=${key}&language=en-US&page=2`
-    const movie = `https://api.themoviedb.org/3/movie/popular?api_key=${key}&language=en-US&page=2`;
+    const tv = `https://api.themoviedb.org/3/tv/popular?api_key=${API_KEY}&language=en-US&page=2`
+    const movie = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=2`;
 
     const pathname = window.location.pathname;
 
@@ -41,9 +41,8 @@ const Popular = props => {
                         }}
                             key={index}
                             className="popular-container_movies-item"
-                        // style={{ background: `url('https://image.tmdb.org/t/p/original${item.poster_path}?api_key=8672037f7713f0f454d73f60ab645f36')` }}
                         >
-                            <img src={`https://image.tmdb.org/t/p/original${item.poster_path}?api_key=8672037f7713f0f454d73f60ab645f36`} />
+                            <img src={`https://image.tmdb.org/t/p/original${item.poster_path}?api_key=${API_KEY}`} />
 
                         </Link>
                     )

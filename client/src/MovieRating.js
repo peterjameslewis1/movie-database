@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 
 const MovieRating = props => {
-    const key = '8672037f7713f0f454d73f60ab645f36';
+    const API_KEY = process.env.REACT_APP_API_KEY;
     const id = props.id;
     const [click, setClick] = useState(false);
     const [starsSelected, setStarsSelected] = useState(0);
@@ -17,7 +17,7 @@ const MovieRating = props => {
 
     useEffect(() => {
         const fetchToken = async () => {
-            const response = await fetch(`https://api.themoviedb.org/3/authentication/guest_session/new?api_key=${key}`);
+            const response = await fetch(`https://api.themoviedb.org/3/authentication/guest_session/new?api_key=${API_KEY}`);
             const token = await response.json()
             setToken(token.guest_session_id)
         };

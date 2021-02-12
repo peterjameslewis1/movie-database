@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react';
 import EpisodeBlock from '../Episode/EpisodeBlock';
 
 const Season = props => {
-    const key = '8672037f7713f0f454d73f60ab645f36';
+    const API_KEY = process.env.REACT_APP_API_KEY;
     const [data, setData] = useState({
         episodes: []
     });
     const id = props.location.state.id;
     const seasonNumber = props.location.state.seasonNumber;
-    const seasonsUrl = `https://api.themoviedb.org/3/tv/${id}/season/${seasonNumber}?api_key=${key}&language=en-US`;
+    const seasonsUrl = `https://api.themoviedb.org/3/tv/${id}/season/${seasonNumber}?api_key=${API_KEY}&language=en-US`;
 
 
     useEffect(() => {

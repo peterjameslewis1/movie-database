@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../../Header/Header';
 
 const Episode = props => {
+    const API_KEY = process.env.REACT_APP_API_KEY;
     const data = props.data;
 
     return (
@@ -14,7 +15,7 @@ const Episode = props => {
 
                             <h3>Episode: {episode.episode_number}</h3>
                             <div className="season-block-container-img"
-                                style={{ background: `url('https://image.tmdb.org/t/p/original${episode.still_path}?api_key=8672037f7713f0f454d73f60ab645f36')` }}
+                                style={{ background: `url('https://image.tmdb.org/t/p/original${episode.still_path}?api_key=${API_KEY}')` }}
                             ></div>
                             <div className="season-block-container-text">
                                 <h3>{episode.name}</h3>
